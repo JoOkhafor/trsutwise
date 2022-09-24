@@ -1,3 +1,264 @@
+
+<?php require_once('page_components/session_setter.php');
+require_once "core/config.php"; 
+
+if(isset($_GET["tr_id"]) && !empty(trim($_GET["tr_id"]))){
+ 
+    // Prepare a select statement
+    $sql = "SELECT * FROM `transactions` WHERE id_transaction= :id " ;
+    
+    if($stmt = $pdo->prepare($sql)){
+        // Bind variables to the prepared statement as parameters
+        $stmt->bindParam(":id", $param_id);
+        
+        // Set parameters
+        $param_id = trim($_GET["tr_id"]);
+        
+        // Attempt to execute the prepared statement
+        if($stmt->execute()){
+            if($stmt->rowCount() == 1){
+                /* Fetch result row as an associative array. Since the result set
+                contains only one row, we don't need to use while loop */
+                $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                
+                // Retrieve individual field value
+                $montant = $row["montant"];
+                $date_tr = $row["transaction_date"];
+                $id_emetteur = $row["id_emetteur"];
+                $id_recepteur = $row["id_recepteur"];
+                $transaction_status = $row["transaction_status"];
+            } 
+            
+        } else{
+            echo "Oops! Something went wrong. Please try again later.";
+        }
+    }
+     
+    // Close statement
+    unset($stmt);
+    
+
+	function total($montant,$frais=1) {
+
+		$total=0;
+		$total = $montant + ($frais*($montant/100));
+		$total = round($total, 2);
+		return $total;
+	}
+	
+		$total = total($row["montant"]);
+		$badge ='';
+	
+
+
+	$sender = "SELECT * FROM `users_register` WHERE user_id= :id " ;
+    
+    if($stmt = $pdo->prepare($sender)){
+        // Bind variables to the prepared statement as parameters
+        $stmt->bindParam(":id", $param_id);
+        
+        // Set parameters
+        $param_id = trim($id_emetteur);
+        
+        // Attempt to execute the prepared statement
+        if($stmt->execute()){
+            if($stmt->rowCount() == 1){
+                /* Fetch result row as an associative array. Since the result set
+                contains only one row, we don't need to use while loop */
+                $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                
+                // Retrieve individual field value
+                $nom_emmeteur = $row["user_name"];
+                $mail_emetteur = $row["email"];
+                $phone_emetteur = $row["telephone"];
+            } 
+            
+        } else{
+            echo "Oops! Something went wrong. Please try again later.";
+        }
+    }
+     
+    // Close statement
+    unset($sender);
+
+
+	$reciver = "SELECT * FROM `users_register` WHERE user_id= :id " ;
+    
+    if($stmt = $pdo->prepare($reciver)){
+        // Bind variables to the prepared statement as parameters
+        $stmt->bindParam(":id", $param_id);
+        
+        // Set parameters
+        $param_id = trim($id_recepteur);
+        
+        // Attempt to execute the prepared statement
+        if($stmt->execute()){
+            if($stmt->rowCount() == 1){
+                /* Fetch result row as an associative array. Since the result set
+                contains only one row, we don't need to use while loop */
+                $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                
+                // Retrieve individual field value
+                $nom_reciver = $row["user_name"];
+                $mail_reciver = $row["email"];
+                $phone_reciver = $row["telephone"];
+            } 
+            
+        } else{
+            echo "Oops! Something went wrong. Please try again later.";
+        }
+    }
+     
+    // Close statement
+    unset($sender);
+
+    // Close connection
+    unset($pdo);
+
+
+} 
+
+?>
+
+
+
+<?php
+// Include config file
+// require_once "config.php";
+ 
+// // Define variables and initialize with empty values
+// $name = $address = $salary = "";
+// $name_err = $address_err = $salary_err = "";
+ 
+// // Processing form data when form is submitted
+// if(isset($_POST["id"]) && !empty($_POST["id"])){
+//     // Get hidden input value
+//     $id = $_POST["id"];
+    
+//     // Validate name
+//     $input_name = trim($_POST["name"]);
+//     if(empty($input_name)){
+//         $name_err = "Please enter a name.";
+//     } elseif(!filter_var($input_name, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/^[a-zA-Z\s]+$/")))){
+//         $name_err = "Please enter a valid name.";
+//     } else{
+//         $name = $input_name;
+//     }
+    
+//     // Validate address address
+//     $input_address = trim($_POST["address"]);
+//     if(empty($input_address)){
+//         $address_err = "Please enter an address.";     
+//     } else{
+//         $address = $input_address;
+//     }
+    
+//     // Validate salary
+//     $input_salary = trim($_POST["salary"]);
+//     if(empty($input_salary)){
+//         $salary_err = "Please enter the salary amount.";     
+//     } elseif(!ctype_digit($input_salary)){
+//         $salary_err = "Please enter a positive integer value.";
+//     } else{
+//         $salary = $input_salary;
+//     }
+    
+//     // Check input errors before inserting in database
+//     if(empty($name_err) && empty($address_err) && empty($salary_err)){
+//         // Prepare an update statement
+//         $sql = "UPDATE employees SET name=:name, address=:address, salary=:salary WHERE id=:id";
+ 
+//         if($stmt = $pdo->prepare($sql)){
+//             // Bind variables to the prepared statement as parameters
+//             $stmt->bindParam(":name", $param_name);
+//             $stmt->bindParam(":address", $param_address);
+//             $stmt->bindParam(":salary", $param_salary);
+//             $stmt->bindParam(":id", $param_id);
+            
+//             // Set parameters
+//             $param_name = $name;
+//             $param_address = $address;
+//             $param_salary = $salary;
+//             $param_id = $id;
+            
+//             // Attempt to execute the prepared statement
+//             if($stmt->execute()){
+//                 // Records updated successfully. Redirect to landing page
+//                 header("location: index.php");
+//                 exit();
+//             } else{
+//                 echo "Oops! Something went wrong. Please try again later.";
+//             }
+//         }
+         
+//         // Close statement
+//         unset($stmt);
+//     }
+    
+//     // Close connection
+//     unset($pdo);
+// } else{
+//     // Check existence of id parameter before processing further
+//     if(isset($_GET["id"]) && !empty(trim($_GET["id"]))){
+//         // Get URL parameter
+//         $id =  trim($_GET["id"]);
+        
+//         // Prepare a select statement
+//         $sql = "SELECT * FROM employees WHERE id = :id";
+//         if($stmt = $pdo->prepare($sql)){
+//             // Bind variables to the prepared statement as parameters
+//             $stmt->bindParam(":id", $param_id);
+            
+//             // Set parameters
+//             $param_id = $id;
+            
+//             // Attempt to execute the prepared statement
+//             if($stmt->execute()){
+//                 if($stmt->rowCount() == 1){
+//                     /* Fetch result row as an associative array. Since the result set
+//                     contains only one row, we don't need to use while loop */
+//                     $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                
+//                     // Retrieve individual field value
+//                     $name = $row["name"];
+//                     $address = $row["address"];
+//                     $salary = $row["salary"];
+//                 } else{
+//                     // URL doesn't contain valid id. Redirect to error page
+//                     header("location: error.php");
+//                     exit();
+//                 }
+                
+//             } else{
+//                 echo "Oops! Something went wrong. Please try again later.";
+//             }
+//         }
+        
+//         // Close statement
+//         unset($stmt);
+        
+//         // Close connection
+//         unset($pdo);
+//     }  else{
+//         // URL doesn't contain id parameter. Redirect to error page
+//         header("location: error.php");
+//         exit();
+//     }
+// }
+?>
+
+
+<?php  if ($transaction_status === 'pending'): ?>
+		<?php $badge = ' <span class="badge badge-light-warning">En attente</span>' ?>
+	<?php endif; ?>
+	<?php  if ($transaction_status === 'delete_pending'): ?>
+		<?php $badge = '<span class="badge badge-light-danger">En suspension</span>' ?>
+		
+	<?php endif; ?>
+	<?php  if ($transaction_status === 'done'): ?>
+		<?php $badge = ' <span class="badge badge-light-succes">Finalisé</span>' ?>
+	<?php endif; ?>
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -24,7 +285,7 @@
 					<!--begin::Content-->
 					<div class="content d-flex flex-column flex-column-fluid" id="kt_content">
 						<!--begin::Container-->
-						<div class="container-xxl" id="kt_content_container">
+						<div class="container-xxl">
 							
 							
 							<div class="card">
@@ -37,30 +298,11 @@
 											<!--begin::Tickets-->
 											<div class="mb-0">
                                                 <div class="mt-n1">
-                                                        <!--begin::Top-->
-                                                        <div class="d-flex flex-stack pb-10">
-                                                            <!--begin::Logo-->
-                                                            <div class="d-flex align-items-center">
-																			<div class="symbol symbol-45px me-5">
-																				<img src="assets/media/avatars/blank.png"
-																					alt="" />
-																			</div>
-																			<div
-																				class="d-flex justify-content-start flex-column">
-																				<span
-																					class="text-dark fw-bold text-hover-primary fs-6">John
-																					Doe</span>
-																				<span
-																					class="text-muted fw-semibold text-muted d-block fs-7">johndoe@gmail.com</span>
-																			</div>
-																		</div>
-                                                            <!--end::Logo-->
-                                                        </div>
-                                                        <!--end::Top-->
+                                                       
                                                         <!--begin::Wrapper-->
                                                         <div class="m-0">
                                                             <!--begin::Label-->
-                                                            <div class="fw-bold fs-3 text-gray-800 mb-8">ID de transaction #34782</div>
+                                                            <div class="fw-bold fs-3 text-gray-800 mb-8">ID de transaction #<?=  $_GET["tr_id"] ?> </div>
                                                             <!--end::Label-->
                                                             <!--begin::Row-->
                                                             <div class="row g-5 mb-11">
@@ -70,20 +312,18 @@
                                                                     <div class="fw-semibold fs-7 text-gray-600 mb-1">Date de création:</div>
                                                                     <!--end::Label-->
                                                                     <!--end::Col-->
-                                                                    <div class="fw-bold fs-6 text-gray-800">12 Apr 2021</div>
+                                                                    <div class="fw-bold fs-6 text-gray-800"><?= $date_tr ?></div>
                                                                     <!--end::Col-->
                                                                 </div>
                                                                 <!--end::Col-->
                                                                 <!--end::Col-->
                                                                 <div class="col-sm-6">
                                                                     <!--end::Label-->
-                                                                    <div class="fw-semibold fs-7 text-gray-600 mb-1">Montant:</div>
+                                                                    <div class="fw-semibold fs-7 text-gray-600 mb-1">Status:</div>
                                                                     <!--end::Label-->
                                                                     <!--end::Info-->
                                                                     <div class="fw-bold fs-6 text-gray-800 d-flex align-items-center flex-wrap">
-                                                                        <span class="pe-2">150.000 FCFA</span>
-                                                                        <span class="fs-7 text-danger d-flex align-items-center">
-                                                                        <span class="badge badge-light-warning">En attente</span>
+                                                                       <?= $badge ?> 
                                                                     </div>
                                                                     <!--end::Info-->
                                                                 </div>
@@ -95,29 +335,31 @@
                                                                 <!--end::Col-->
                                                                 <div class="col-sm-6">
                                                                     <!--end::Label-->
-                                                                    <div class="fw-semibold fs-7 text-gray-600 mb-1">Reçu par:</div>
+                                                                    <div class="fw-semibold fs-7 text-gray-600 mb-5">Envoyé par:</div>
                                                                     <!--end::Label-->
                                                                     <!--end::Text-->
-                                                                    <div class="fw-bold fs-6 text-gray-800">Jo O'Khafor</div>
+                                                                    <div class="fw-bold fs-6 text-gray-800 mb-2" style ="text-transform: capitalize;">
+																		<?= $nom_emmeteur ?>
+																	</div>
                                                                     <!--end::Text-->
                                                                     <!--end::Description-->
-                                                                    <div class="fw-semibold fs-7 text-gray-600">jo@okhafor.com</div>
-                                                                    <div class="fw-semibold fs-7 text-gray-600">+228 92035070</div>
+                                                                    <div class="fw-semibold fs-7 text-gray-600 mb-2"><?= $phone_emetteur ?></div>
+                                                                    <div class="fw-semibold fs-7 text-gray-600 mb-2"><?= $mail_emetteur ?></div>
                                                                     <!--end::Description-->
                                                                 </div>
                                                                 <!--end::Col-->
                                                                 <!--end::Col-->
                                                                 <div class="col-sm-6">
                                                                     <!--end::Label-->
-                                                                    <div class="fw-semibold fs-7 text-gray-600 mb-1">Émis par:</div>
+                                                                    <div class="fw-semibold fs-7 text-gray-600 mb-5">Reçu  par:</div>
                                                                     <!--end::Label-->
-                                                                    <!--end::Text-->
-                                                                    <div class="fw-bold fs-6 text-gray-800">CodeLab Inc.</div>
+																	<div class="fw-bold fs-6 text-gray-800 mb-2" style ="text-transform: capitalize;">
+																		<?= $nom_reciver ?>
+																	</div>
                                                                     <!--end::Text-->
                                                                     <!--end::Description-->
-                                                                    <div class="fw-semibold fs-7 text-gray-600">9858 South 53rd Ave.
-                                                                    <br>Matthews, NC 28104</div>
-                                                                    <!--end::Description-->
+                                                                    <div class="fw-semibold fs-7 text-gray-600 mb-2"><?= $phone_reciver  ?></div>
+                                                                    <div class="fw-semibold fs-7 text-gray-600 mb-2"><?= $mail_reciver  ?></div>
                                                                 </div>
                                                                 <!--end::Col-->
                                                             </div>
@@ -151,26 +393,44 @@
 											<!--begin::More channels-->
 											<div class="card-rounded bg-primary bg-opacity-5 p-10 mb-15">
 												<!--begin::Title-->
-												<h2 class="text-dark fw-bold mb-11">More Channels</h2>
+												<h2 class="text-dark fw-bold mb-11">Facture</h2>
 												<!--end::Title-->
 												<!--begin::Item-->
                                                 <div class="mb-7">
                                                     <!--begin::Title-->
-                                                    <h5 class="mb-3">Compte réception</h5>
+                                                
                                                     <!--end::Title-->
                                                     <!--begin::Details-->
                                                     <div class="d-flex align-items-center mb-1">
                                                         <!--begin::Name-->
-                                                        <a href="../../demo3/dist/apps/customers/view.html" class="fw-bold text-gray-800 text-hover-primary me-2">Sean Bean</a>
+														<span class="fw-bold text-gray-800me-2">Montant du transfert: </a>
                                                         <!--end::Name-->
                                                         <!--begin::Status-->
-                                                        <span class="badge badge-light-success">Active</span>
+                                                        <span class="text-gray-600"><?= ''.$montant.' FCFA' ?></span>
                                                         <!--end::Status-->
                                                     </div>
                                                     <!--end::Details-->
-                                                    <!--begin::Email-->
-                                                    <a href="#" class="fw-semibold text-gray-600 text-hover-primary">sean@dellito.com</a>
-                                                    <!--end::Email-->
+													<div class="d-flex align-items-center mb-1">
+                                                        <!--begin::Name-->
+                                                        <span class="fw-bold text-gray-800 me-2">Frais: </a>
+                                                        <!--end::Name-->
+                                                        <!--begin::Status-->
+                                                        <span class="text-gray-600"><?= ''.$total - $montant.' FCFA' ?></span>
+                                                        <!--end::Status-->
+                                                    </div>
+                                                    <!--end::Details-->
+
+													 <!--end::Details-->
+													 <div class="d-flex align-items-center mb-1">
+                                                        <!--begin::Name-->
+                                                        <span class="fw-bold text-gray-800 me-2">Total: </a>
+                                                        <!--end::Name-->
+                                                        <!--begin::Status-->
+                                                        <span class="text-gray-600"><?php echo ''.$total.' FCFA' ?></span>
+                                                        <!--end::Status-->
+                                                    </div>
+                                                    <!--end::Details-->
+                                                   
                                                 </div>
                                                 <!--end::Section-->
                                                 
@@ -178,17 +438,14 @@
                                                 <!--begin::Section-->
                                                 <div class="mb-10">
                                                     <!--begin::Title-->
-                                                    <h5 class="mb-3">Payment Details</h5>
+                                                    <h5 class="mb-3">Méthode de payement</h5>
                                                     <!--end::Title-->
                                                     <!--begin::Details-->
                                                     <div class="mb-0">
                                                         <!--begin::Card info-->
-                                                        <div class="fw-semibold text-gray-600 d-flex align-items-center">Mastercard
+                                                        <div class="fw-semibold text-gray-600 d-flex align-items-center mb-2">Mastercard
                                                         <img src="assets/media/svg/card-logos/mastercard.svg" class="w-35px ms-2" alt=""></div>
                                                         <!--end::Card info-->
-                                                        <!--begin::Card expiry-->
-                                                        <div class="fw-semibold text-gray-600">Expires Dec 2024</div>
-                                                        <!--end::Card expiry-->
                                                     </div>
                                                     <!--end::Details-->
                                                 </div>

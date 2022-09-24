@@ -1,4 +1,3 @@
-<?php require_once('page_components/session_setter.php') ?>
 <!DOCTYPE html>
 
 <html lang="en">
@@ -100,11 +99,7 @@
 											
 												
 											</div>
-											<div class="false-For-Bottom-Text">
-												<div class="mypiechart">	
-													<canvas id="myCanvas1" width="300" height="300"></canvas>
-												</div>
-											</div>
+											<span class="text-gray-400 pt-1 fw-semibold fs-6">Volume de données</span>
 											
 										</div>
 									</div>
@@ -790,6 +785,79 @@
 		</div>
 	</div>
 
+	<div class="modal fade" tabindex="-1" id="warning-modal">
+		<div class="modal-dialog modal-dialog-centered">
+			<div aria-labelledby="swal2-title" aria-describedby="swal2-html-container"
+					class="swal2-popup swal2-modal swal2-icon-warning swal2-show" tabindex="-1" role="dialog"
+					aria-live="assertive" aria-modal="true" style="display: grid;"><button type="button"
+						class="swal2-close" aria-label="Close this dialog" style="display: none;">×</button>
+					<ul class="swal2-progress-steps" style="display: none;"></ul>
+					<div class="swal2-icon swal2-warning swal2-icon-show" style="display: flex;">
+						<div class="swal2-icon-content">!</div>
+					</div><img class="swal2-image" style="display: none;">
+					<h2 class="swal2-title" id="swal2-title" style="display: none;"></h2>
+					<div class="swal2-html-container" id="swal2-html-container" style="display: block;">Êtes-vous sur de voulir annuler cette transaction?</div><input class="swal2-input" style="display: none;"><input
+						type="file" class="swal2-file" style="display: none;">
+					<div class="swal2-range" style="display: none;"><input type="range"><output></output></div><select
+						class="swal2-select" style="display: none;"></select>
+					<div class="swal2-radio" style="display: none;"></div><label for="swal2-checkbox"
+						class="swal2-checkbox" style="display: none;"><input type="checkbox"><span
+							class="swal2-label"></span></label><textarea class="swal2-textarea"
+						style="display: none;"></textarea>
+					<div class="swal2-validation-message" id="swal2-validation-message" style="display: none;"></div>
+					<div class="swal2-actions" style="display: flex;">
+						<div class="swal2-loader"></div><button type="button"
+							class="swal2-confirm btn fw-bold btn-danger" aria-label=""
+							style="display: inline-block;">Oui continuer!</button><button type="button" class="swal2-deny"
+							aria-label="" style="display: none;"></button><button type="button"
+							class="swal2-cancel btn fw-bold btn-active-light-primary" aria-label=""
+							style="display: inline-block;">Non, annuler</button>
+					</div>
+					<div class="swal2-footer" style="display: none;"></div>
+					<div class="swal2-timer-progress-bar-container">
+						<div class="swal2-timer-progress-bar" style="display: none;"></div>
+					</div>
+				</div>
+		</div>
+	</div>
+
+	</div>
+
+	<div class="modal fade" tabindex="-1" id="danger-modal">
+		<div class="modal-dialog modal-dialog-centered">
+			<div aria-labelledby="swal2-title" aria-describedby="swal2-html-container"
+						class="swal2-popup swal2-modal swal2-icon-error swal2-show" tabindex="-1" role="dialog"
+						aria-live="assertive" aria-modal="true" style="display: grid;"><button type="button" class="swal2-close"
+							aria-label="Close this dialog" style="display: none;">×</button>
+						<ul class="swal2-progress-steps" style="display: none;"></ul>
+						<div class="swal2-icon swal2-error swal2-icon-show" style="display: flex;"><span class="swal2-x-mark">
+								<span class="swal2-x-mark-line-left"></span>
+								<span class="swal2-x-mark-line-right"></span>
+							</span>
+						</div><img class="swal2-image" style="display: none;">
+						<h2 class="swal2-title" id="swal2-title" style="display: none;"></h2>
+						<div class="swal2-html-container" id="swal2-html-container" style="display: block;">Sorry, looks like
+							there are some errors detected, please try again.</div><input class="swal2-input"
+							style="display: none;"><input type="file" class="swal2-file" style="display: none;">
+						<div class="swal2-range" style="display: none;"><input type="range"><output></output></div><select
+							class="swal2-select" style="display: none;"></select>
+						<div class="swal2-radio" style="display: none;"></div><label for="swal2-checkbox" class="swal2-checkbox"
+							style="display: none;"><input type="checkbox"><span class="swal2-label"></span></label><textarea
+							class="swal2-textarea" style="display: none;"></textarea>
+						<div class="swal2-validation-message" id="swal2-validation-message" style="display: none;"></div>
+						<div class="swal2-actions" style="display: flex;">
+							<div class="swal2-loader"></div><button type="button" class="swal2-confirm btn btn-primary"
+								aria-label="" style="display: inline-block;">Ok, got it!</button><button type="button"
+								class="swal2-deny" aria-label="" style="display: none;">No</button><button type="button"
+								class="swal2-cancel" aria-label="" style="display: none;">Cancel</button>
+						</div>
+						<div class="swal2-footer" style="display: none;"></div>
+						<div class="swal2-timer-progress-bar-container">
+							<div class="swal2-timer-progress-bar" style="display: none;"></div>
+						</div>
+					</div>
+		</div>
+	</div>
 		
 
 		<div id="kt_scrolltop" class="scrolltop" data-kt-scrolltop="true">
@@ -804,170 +872,6 @@
 			</span>
 		</div>
 		<?php include 'page_components/scripts.php' ?>
-		<script type="text/javascript">
-		
-		var obj = {
-						values: [15, 50, 20, 85, 30],
-						colors: ['#4CAF50', '#00BCD4', '#E91E63', '#FFC107', '#9E9E9E'],
-						animation: true, // Takes boolean value & default behavious is false
-						animationSpeed: 50, // Time in miliisecond & default animation speed is 20ms
-						fillTextData: true, // Takes boolean value & text is not generate by default 
-						fillTextColor: '#fff', // For Text colour & default colour is #fff (White)
-						fillTextAlign: 1.30, // for alignment of inner text position i.e. higher values gives closer view to center & default text alignment is 1.85 i.e closer to center
-						fillTextPosition: 'inner', // 'horizontal' or 'vertical' or 'inner' & default text position is 'horizontal' position i.e. outside the canvas
-						doughnutHoleSize: 50, // Percentage of doughnut size within the canvas & default doughnut size is null
-						doughnutHoleColor: '#fff', // For doughnut colour & default colour is #fff (White)
-						offset: 1, // Offeset between two segments & default value is null
-						pie: 'normal', // if the pie graph is single stroke then we will add the object key as "stroke" & default is normal as simple as pie graph
-						isStrokePie: { 
-							stroke: 20, // Define the stroke of pie graph. It takes number value & default value is 20
-							overlayStroke: true, // Define the background stroke within pie graph. It takes boolean value & default value is false
-							overlayStrokeColor: '#eee', // Define the background stroke colour within pie graph & default value is #eee (Grey)
-							strokeStartEndPoints: 'Yes', // Define the start and end point of pie graph & default value is No
-							strokeAnimation: true, // Used for animation. It takes boolean value & default value is true
-							strokeAnimationSpeed: 40, // Used for animation speed in miliisecond. It takes number & default value is 20ms
-							fontSize: '60px', // Used to define text font size & default value is 60px
-							textAlignement: 'center', // Used for position of text within the pie graph & default value is 'center'
-							fontFamily: 'Arial', // Define the text font family & the default value is 'Arial'
-							fontWeight: 'bold' //  Define the font weight of the text & the default value is 'bold'
-						}
-					  };
-		
-		var obj1 = {
-						values: [15, 50, 20, 85, 30],
-						colors: ['#4CAF50', '#00BCD4', '#E91E63', '#FFC107', '#9E9E9E'],
-						animation: false,
-						fillTextData: true,
-						fillTextColor: '#fff',
-						fillTextAlign: 1.3, 
-						fillTextPosition: 'inner',
-						doughnutHoleSize: 60,
-						doughnutHoleColor: '#fff',
-						offset: 1
-					  };
-		
-		var obj2 = {
-						values: [15, 50, 20, 85, 30],
-						colors: ['#4CAF50', '#00BCD4', '#E91E63', '#FFC107', '#9E9E9E'],
-						animation: true,
-						animationSpeed: 30,
-						fillTextData: true,
-						fillTextColor: '#fff',
-						fillTextAlign: 1.50, 
-						fillTextPosition: 'inner',
-						doughnutHoleSize: null,
-						doughnutHoleColor: '#fff',
-						offset: 1
-					  };
-		
-		var obj3 = {
-						values: [15, 50, 20, 85, 30],
-						colors: ['#4CAF50', '#00BCD4', '#E91E63', '#FFC107', '#9E9E9E'],
-						animation: true,
-						fillTextData: true,
-						fillTextColor: '#fff',
-						fillTextPosition: 'horizontal',
-						doughnutHoleSize: null,
-						doughnutHoleColor: '#fff',
-						offset: null
-					  };
-		
-		var obj4 = {
-						values: [15, 50, 20, 85, 30],
-						colors: ['#4CAF50', '#00BCD4', '#E91E63', '#FFC107', '#9E9E9E'],
-						animation: true,
-						fillTextData: true,
-						fillTextColor: '#fff',
-						fillTextPosition: 'vertical',
-						doughnutHoleSize: null,
-						doughnutHoleColor: '#000',
-						offset: null
-					  };
-		
-		var obj5 = {
-						values: [15, 50, 20, 85, 30],
-						colors: ['#4CAF50', '#00BCD4', '#E91E63', '#FFC107', '#9E9E9E'],
-						animation: true,
-						doughnutHoleSize: 80,
-						doughnutHoleColor: '#fff',
-						offset: 5
-					  };
-		
-		var obj6 = {
-						pie: 'stroke',
-						values: [85],
-						colors: ['#4CAF50'],
-						isStrokePie: {
-							stroke: 20,
-							strokeStartEndPoints: 'Yes',
-							strokeAnimation: true,
-							strokeAnimationSpeed: 30,
-							fontSize: '40px',
-							textAlignement: 'center',
-							fontFamily: 'Arial',
-							fontWeight: 'bold'
-						}
-					  };
-		
-		var obj7 = {
-						pie: 'stroke',
-						values: [65],
-						colors: ['#00BCD4'],
-						isStrokePie: {
-							stroke: 20,
-							strokeStartEndPoints: 'Yes',
-							strokeAnimation: false,
-							strokeAnimationSpeed: 20,
-							fontSize: '60px',
-							textAlignement: 'center',
-							fontFamily: 'Arial',
-							fontWeight: 'bold'
-						}
-					  };
-		
-		var obj8 = {
-						pie: 'stroke',
-						values: [75],
-						colors: ['#E91E63'],
-						isStrokePie: {
-							stroke: 20,
-							overlayStroke: true,
-							overlayStrokeColor: '#eee',
-							strokeStartEndPoints: 'Yes',
-							strokeAnimation: true,
-							strokeAnimationSpeed: 40,
-							fontSize: '60px',
-							textAlignement: 'center',
-							fontFamily: 'Arial',
-							fontWeight: 'bold'
-						}
-					  };
-		
-		var obj9 = {
-						pie: 'stroke',
-						values: [80],
-						colors: ['#FFC107'],
-						isStrokePie: {
-							stroke: 20,
-							overlayStroke: true,
-							overlayStrokeColor: '#eee',
-							strokeStartEndPoints: 'No',
-							strokeAnimation: false,
-							strokeAnimationSpeed: 20,
-							fontSize: '60px',
-							textAlignement: 'center',
-							fontFamily: 'Arial',
-							fontWeight: 'bold'
-						}
-					  };
-		
-		//Generate myCanvas		
-		generatePieGraph('myCanvas', obj);
-		
-		
-		
-	</script>
-
 </body>
 
 </html>

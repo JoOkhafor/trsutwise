@@ -52,7 +52,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 if($stmt->rowCount() == 1){
                     if($row = $stmt->fetch()){
                         $id = $row["user_id"];
-                        $user_mail = $row["email"];
+                        $user_mail = $_row["email"];
                         $user_name = $row["user_name"];
                         $hashed_password = $row["password"];
                         if(password_verify($login_password, $hashed_password)){
@@ -63,6 +63,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             $_SESSION["loggedin"] = true;
                             $_SESSION["id"] = $id;
                             $_SESSION["user_name"] = $user_name;                            
+                            $_SESSION["usr_mail"] =  $user_mail;                            
                             
                             // Redirect user to welcome page
                             header("location: dashboard.php");
@@ -182,6 +183,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 										<div class="d-flex flex-stack mt-10">
 											<!--begin::Link-->
 											<input  class="btn btn-primary" type="submit" value="Se connecter">
+
+											<div class="m-0 d-flex flex-column align-items-end">
+										<a href="forgot-password.php" class="link-primary fw-bold fs-5">Mot de pass oublié?</a>
+									</div>
 											
 										</div>
 									</form>

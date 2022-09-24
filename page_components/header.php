@@ -67,9 +67,9 @@ function active($currect_page){
 							<!--end::Aside mobile toggle-->
 							<!--begin::Logo-->
 							<a href="dashboard.php" class="d-flex align-items-center">
-								<img alt="Logo" src="assets/media/logos/demo3.svg" class="theme-light-show h-20px" />
+								<img alt="Logo" src="assets/media/logos/demo3.svg" class="theme-light-show h-40px" />
 								<img alt="Logo" src="assets/media/logos/demo3-dark.svg"
-									class="theme-dark-show h-20px" />
+									class="theme-dark-show h-40px" />
 							</a>
 
 							<!--end::Logo-->
@@ -94,7 +94,7 @@ function active($currect_page){
 							<!--begin::Theme mode-->
 							<div class="d-flex align-items-center ms-3 ms-lg-4">
 								<!--begin::Menu toggle-->
-								<a href="#" class="btn btn-icon btn-color-gray-700 btn-active-color-primary w-40px h-40px user_pic"
+								<a href="#" class="btn btn-icon btn-color-gray-700 btn-active-color-primary w-40px h-20px user_pic"
 									data-kt-menu-trigger="{default:'click', lg: 'hover'}" data-kt-menu-attach="parent"
 									data-kt-menu-placement="bottom-end" style="flex-direction: column;
     min-width: 163px!important;
@@ -122,13 +122,30 @@ function active($currect_page){
 															</span>
 															<!--end::Svg Icon-->
 														</span>
-														<span class="menu-title">Mon compte</span>
+														<span class="menu-title">Profile</span>
+													</a>
+												</div>
+
+												<div class="menu-item px-3 my-0 mb-5">
+													<a href="account-settings.php" class="menu-link px-3 py-2" data-kt-element="mode"
+														data-kt-value="light">
+														<span class="menu-icon" data-kt-element="icon">
+															<!--begin::Svg Icon | path: icons/duotune/general/gen060.svg-->
+															<span class="svg-icon svg-icon-3">
+															<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+																	<path d="M6.28548 15.0861C7.34369 13.1814 9.35142 12 11.5304 12H12.4696C14.6486 12 16.6563 13.1814 17.7145 15.0861L19.3493 18.0287C20.0899 19.3618 19.1259 21 17.601 21H6.39903C4.87406 21 3.91012 19.3618 4.65071 18.0287L6.28548 15.0861Z" fill="currentColor"/>
+																	<rect opacity="0.3" x="8" y="3" width="8" height="8" rx="4" fill="currentColor"/>
+																	</svg>
+															</span>
+															<!--end::Svg Icon-->
+														</span>
+														<span class="menu-title">Paramètres</span>
 													</a>
 												</div>
 									
 									<!--begin::Menu item-->
 									<div class="menu-item px-3 my-0">
-												<a href="log-out.php" class="btn btn-primary px-3" data-kt-element="mode"
+												<a href="log-out.php" class="px-3" data-kt-element="mode"
 													data-kt-value="system">
 														<span class="menu-icon" data-kt-element="icon">
 															<!--begin::Svg Icon | path: icons/duotune/general/gen062.svg-->

@@ -14,6 +14,7 @@
 		<script src="assets/js/custom/widgets.js"></script>
 		<script src="assets/js/custom/apps/chat/chat.js"></script>
 		<script src="assets/js/custom/utilities/modals/users-search.js"></script>
+		<script src="assets/js/rpie.js"></script>
 		<!--end::Custom Javascript-->
 		<!--end::Javascript-->
 		<script src="http://code.highcharts.com/highcharts.js"></script>

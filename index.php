@@ -1,877 +1,189 @@
 <!DOCTYPE html>
-
 <html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/home.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="shortcut icon" href="assets/media/logos/favicon.png" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,400;1,600;1,700&display=swap" rel="stylesheet">
+    <title>TRUSTWISE </title>
+</head>
+<body>
+   <header>
+        <nav>
+            <div class="logo">
+               <a href="index.php">
+                     <img class="logo_img" src="assets/media/logos/logo.png" alt="" srcset=""> 
+               </a>
+            </div>
 
-<!--begin::Head-->
-<?php include 'page_components/head.php' ?>
-<!--end::Head-->
+            <div class="login_group">
+                <a href="login.php" class="btn btn_no_back">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M15.1777 16.0636C14.4514 16.0636 13.8627 15.4748 13.8627 14.7486V14.2751C13.8627 13.912 14.157 13.6176 14.5202 13.6176C14.8833 13.6176 15.1777 13.912 15.1777 14.2751V14.7486L16.9924 14.2949C17.1127 14.2598 17.2404 14.2598 17.3606 14.2949L18.4653 14.6631V12.9601C18.4653 12.597 18.1709 12.3026 17.8077 12.3026H11.831C11.5104 14.1993 9.86863 15.5882 7.94507 15.5902C5.77811 15.5618 4.02833 13.8121 4 11.6451C4 10.1508 4.84425 8.78479 6.18078 8.11653C7.51731 7.44826 9.11668 7.59248 10.3121 8.48905C10.6026 8.70693 10.6615 9.11906 10.4436 9.40956C10.2257 9.70007 9.8136 9.75895 9.5231 9.54107C8.72615 8.94335 7.65989 8.84721 6.76888 9.29272C5.87786 9.73823 5.31502 10.6489 5.31502 11.6451C5.33276 13.0902 6.49994 14.2574 7.94507 14.2751C9.22923 14.2772 10.3271 13.3517 10.5422 12.0856C10.6493 11.4451 11.2079 10.9787 11.8573 10.9876H17.8077C18.8971 10.9876 19.7803 11.8707 19.7803 12.9601V14.6762C19.7807 15.0988 19.5779 15.4959 19.2353 15.7434C18.8928 15.9909 18.4521 16.0586 18.051 15.9255L17.1502 15.5902L15.5196 15.9978C15.409 16.0348 15.2941 16.0569 15.1777 16.0636Z" fill="#868F97"></path></svg>
+                    Connexion</a>
+                <span></span>
+                <a href="sign-up.php" class="btn">S'inscrire</a>
+            </div>
+        </nav>
 
-<!--begin::Body-->
+        <div class="hero">
+            <div class="hero_intro">
+                <h4>Avalaible</h4>
+                <h1>L'expérience utltime pour les transaction modernes</h1>
+            </div>
+        </div>
 
-<body id="kt_body" class="sidebar-enabled">
-	<!--begin::Theme mode setup on page load-->
-	<?php include 'page_components/dark_mode.php' ?>
-	<div class="d-flex flex-column flex-root">
+        <div class="home_img">
+            <img class="home_intro" src="assets/media/home/home.png" alt="">
+        </div>
 
-		<div class="page d-flex flex-row flex-column-fluid">
+        <div class="section_bottom">
+            <h2> Immerse yourself.
+            </h2>
+            <p>
+                ur asset pages are more than just beautiful. Dig deeper through financials, news, estimates and more from anywhere in the app.
+            </p>
+        </div>
 
-			<?php include 'page_components/aside.php' ?>
-		
-			<div class="wrapper d-flex flex-column flex-row-fluid" id="kt_wrapper">
-	
-				<?php include 'page_components/header.php' ?>
-				
-				<!--begin::Content-->
-				<div class="content d-flex flex-column flex-column-fluid" id="kt_content">
-		
+        <div class="home_img">
+            <img class="static-img" src="assets/media/home/home-UI-closed_4x.f755a2c3.png" alt="">
+        </div>
 
-					<div class="container-xxl" id="kt_content_container">
-				
-						<div class="row g-5 g-xl-10 mb-xl-10">
-					
-							<div class="col-md-6 col-lg-6 col-xl-6 col-xxl-6 mb-md-5 mb-xl-10">
+   </header>
 
-						
-								<div class="card card-flush mb-5">
-								
-									<div class="card-header pt-5">
-										
-										<div class="card-title d-flex flex-column">
-										
-											<span class="fs-2hx fw-bold text-dark me-2 lh-1 ls-n2">357</span>
-											
-											<span class="text-gray-400 pt-1 fw-semibold fs-6">Transactions au total</span>
-										
-										</div>
-									</div>
-									<div class="card-body d-flex flex-column justify-content-end pe-0">
-									
-										<span class="fs-6 fw-bolder text-gray-800 d-block mb-2">Derniers contacts</span>
-									
-										<div class="symbol-group symbol-hover flex-nowrap">
-											<div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip"
-												title="Alan Warden">
-												<span
-													class="symbol-label bg-warning text-inverse-warning fw-bold">A</span>
-											</div>
-											<div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip"
-												title="Michael Eberon">
-												<img alt="Pic" src="assets/media/avatars/blank.png" />
-											</div>
-											<div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip"
-												title="Susan Redwood">
-												<span
-													class="symbol-label bg-primary text-inverse-primary fw-bold">S</span>
-											</div>
-											<div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip"
-												title="Melody Macy">
-												<img alt="Pic" src="assets/media/avatars/blank.png" />
-											</div>
-											<div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip"
-												title="Perry Matthew">
-												<span
-													class="symbol-label bg-danger text-inverse-danger fw-bold">P</span>
-											</div>
-											<div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip"
-												title="Barry Walter">
-												<img alt="Pic" src="assets/media/avatars/blank.png" />
-											</div>
-											<a href="#" class="symbol symbol-35px symbol-circle" data-bs-toggle="modal"
-												data-bs-target="#kt_modal_view_users">
-												<span class="symbol-label bg-dark text-gray-300 fs-8 fw-bold">+4</span>
-											</a>
-										</div>
-									</div>
-								</div>
-							</div>
-							
-							<div class="col-md-6 col-lg-6 col-xl-6 col-xxl-6 mb-md-5 mb-xl-10">
-							
-								<div class="card card-flush mb-5">
-									
-									<div class="card-header pt-5">
-										
-										<div class="card-title d-flex flex-column">
-										
-											<div class="d-flex align-items-center">
-												
-												<span class="fs-2hx fw-bold text-dark me-2 lh-1 ls-n2">69,700N  FCFA</span>
-											
-												
-											</div>
-											<span class="text-gray-400 pt-1 fw-semibold fs-6">Volume de données</span>
-											
-										</div>
-									</div>
-									<div class="card-body pt-2 pb-4 d-flex flex-wrap align-items-center">
-										
-										<div class="d-flex flex-center me-5 pt-2">
-										
-										</div>
-										<div class="d-flex flex-column content-justify-center flex-row-fluid">
-										
-											<div class="d-flex fw-semibold align-items-center">
-												
-												<div class="bullet w-8px h-3px rounded-2 bg-success me-3"></div>
-											
-												<div class="text-gray-500 flex-grow-1 me-4">Transaction entrant</div>
-											
-												<div class="fw-bolder text-gray-700 text-xxl-end">7,660 FCFA</div>
-											
-											</div>
-											<div class="d-flex fw-semibold align-items-center my-3">
-												
-												<div class="bullet w-8px h-3px rounded-2 bg-primary me-3"></div>
-											
-												<div class="text-gray-500 flex-grow-1 me-4">Transaction sortant</div>
-												
-												<div class="fw-bolder text-gray-700 text-xxl-end">2,820 FCFA</div>
-											</div>
-											
-										</div>
-									</div>
-								</div>
+   <section>
+        <div class="section-wreapper block-section">
+            <div class="section_intro">
+                <h2> See the big picture.</h2>
+                <p>Know what’s happening now and what might happen next. Fey lets you keep an eye on the markets while consolidating your portfolio.
+                </p>
+            </div>
 
-							</div>
+            <div class="full-img">
+                <img src="assets/media/home/home-UI-closed_4x.f755a2c3.png" alt="">
+            </div>
 
-						</div>
-					</div>
+            <div class="section_bottom">
+                <h2> Lorem ipsum dolor sit amet consectetur adipisicing elit</h2>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit Quis, ratione dignissimos. Facere non soluta illum asperiores 
+                </p>
+            </div>
 
-					<div class="container-xxl" id="kt_content_container">
+        </div>
+   </section>
 
-						<div class="col-xl-12">
-							<!--begin::Timeline Widget 4-->
-							<div class="card h-md-100">
-								<!--end::Card header-->
-								<div class="card-body pt-6">
+  
 
-									<div class="card ">
-										<div class="card-header card-header-stretch">
-											<!--begin::Card title-->
-											<h3 class="card-title text-gray-800 fw-bold">Dernières transactions</h3>
-											<!--end::Card title-->
-											<div class="card-toolbar">
-												<ul class="nav nav-stretch nav-pills nav-pills-custom d-flex mt-4"
-													role="tablist">
-													<!--begin::Nav item-->
+   <section class="benefits">
+        <div class="section_wrapper">
+           <div class="row">
+            <div class="col-unit-6 ">
+                <h2> Lorem ipsum dolor sit amet consectetur</h2>
+            </div>
 
-													<!--end::Nav item-->
-													<!--begin::Nav item-->
-													<li class="nav-item p-0 ms-0" role="presentation">
-														<a class="nav-link btn btn-color-gray-400 flex-center px-3 active"
-															data-bs-toggle="tab" href="#outgoing_tab">
-															<!--begin::Title-->
-															<span class="nav-text fw-semibold fs-4 mb-3">Sortant</span>
-															<!--end::Title-->
-															<!--begin::Bullet-->
-															<span
-																class="bullet-custom position-absolute z-index-2 w-100 h-1px top-100 bottom-n100 bg-primary rounded"></span>
-															<!--end::Bullet-->
-														</a>
-													</li>
-													<!--end::Nav item-->
-													<!--begin::Nav item-->
-													<li class="nav-item p-0 ms-0" role="presentation">
-														<a class="nav-link btn btn-color-gray-400 flex-center px-3"
-															data-bs-toggle="tab" href="#incoming_tab">
-															<!--begin::Title-->
-															<span class="nav-text fw-semibold fs-4 mb-3">Entrant</span>
-															<!--end::Title-->
-															<!--begin::Bullet-->
-															<span
-																class="bullet-custom position-absolute z-index-2 w-100 h-1px top-100 bottom-n100 bg-primary rounded"></span>
-															<!--end::Bullet-->
-														</a>
-													</li>
-													<!--end::Nav item-->
-												</ul>
-											</div>
-										</div>
-										<div class="card-body">
-											<div class="tab-content" id="myTabContent">
-												<div class="tab-pane fade show active" id="outgoing_tab"
-													role="tabpanel">
-													<!--begin::Table container-->
-													<div class="table-responsive item--card mb-4">
-														<!--begin::Table-->
-														<table
-															class="table table-row-dashed table-row-gray-300 align-middle gs-0 gy-4">
+            <div class="col-unit-6 description_content">
+                <p>
+                    The Fey Command lets you have full control at your fingertips. Manage your portfolio, view transactions and execute real-time orders in seconds, all without ever touching your mouse.
+                </p>
+            </div>
+           </div>
+            <div class="full-img">
+                <img src="assets/media/home/keyboard_4x.fac19d71.jpg" alt="">
+            </div>
+        </div>
+   </section>
+ 
+   <section class="features">
+        <div class="section-wreapper block-section">
+            <div class="section_intro">
+                <h2> Everything, unlike anything.</h2>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit Quis, ratione dignissimos. Facere non soluta illum asperiores 
+                </p>
+            </div>
 
-															<!--begin::Table body-->
-															<tbody>
-																<tr>
+            <div class="row">
+                <div class="grid-unit-4 feature_description">
+                  <p>Create an idea from our instant search, track an asset’s performance and seamlessly execute your positions. Fey encourages thoughtful decisions while making you even more productive.</p>  
+                </div>
+                <div class="grid-unit-6">
+                    <div class="full-img">
+                        <img src="assets/media/home/home-UI-closed_4x.f755a2c3.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+   </section>
 
-																	<td>
-																		<div class="d-flex align-items-center">
-																			<div class="symbol symbol-45px me-5">
-																				<img src="assets/media/avatars/blank.png"
-																					alt="" />
-																			</div>
-																			<div
-																				class="d-flex justify-content-start flex-column">
-																				<span
-																					class="text-dark fw-bold text-hover-primary fs-6">John
-																					Doe</span>
-																				<span
-																					class="text-muted fw-semibold text-muted d-block fs-7">johndoe@gmail.com</span>
-																			</div>
-																		</div>
-																	</td>
-																	<td>
-																		<p href="#"
-																			class="text-dark fw-bold text-hover-primary d-block fs-6">
-																			54000 FCFA</p>
-																	</td>
-																	<td>
-																		<p href="#"
-																			class="text-dark fw-bold text-hover-primary d-block fs-6">
-																			12/09/2022</p>
-																	</td>
-																	<td class="text-end">
-																		<!--begin::Label-->
-																		<span
-																			class="badge badge-light-success fs-base">En attente</span>
-																	</td>
-																	<td>
-																		<div
-																			class="d-flex justify-content-end flex-shrink-0">
-																			<a href="#"
-																				class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1" data-bs-toggle="modal"
-																				data-bs-target="#warning-modal">
-																				<!--begin::Svg Icon | path: icons/duotune/general/gen019.svg-->
-																				<span class="svg-icon svg-icon-3">
-																					<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-																						<path d="M9.89557 13.4982L7.79487 11.2651C7.26967 10.7068 6.38251 10.7068 5.85731 11.2651C5.37559 11.7772 5.37559 12.5757 5.85731 13.0878L9.74989 17.2257C10.1448 17.6455 10.8118 17.6455 11.2066 17.2257L18.1427 9.85252C18.6244 9.34044 18.6244 8.54191 18.1427 8.02984C17.6175 7.47154 16.7303 7.47154 16.2051 8.02984L11.061 13.4982C10.7451 13.834 10.2115 13.834 9.89557 13.4982Z" fill="currentColor"/>
-																					</svg>															
-																				</span>
-																				<!--end::Svg Icon-->
-																			</a>
-																			<a href="#"
-																				class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1" data-bs-toggle="modal"
-																				data-bs-target="#danger-modal">
-																				<!--begin::Svg Icon | path: icons/duotune/art/art005.svg-->
-																				<span class="svg-icon svg-icon-3">
-																				<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-																					<rect opacity="0.3" x="2" y="2" width="20" height="20" rx="5" fill="currentColor"/>
-																					<rect x="7" y="15.3137" width="12" height="2" rx="1" transform="rotate(-45 7 15.3137)" fill="currentColor"/>
-																					<rect x="8.41422" y="7" width="12" height="2" rx="1" transform="rotate(45 8.41422 7)" fill="currentColor"/>
-																					</svg>
-																				</span>
-																				<!--end::Svg Icon-->
-																			</a>
+   <section class="min_margin">
+    <div class="section-wreapper block-section">
+        <div class="section_intro">
+            <h2> Lorem ipsum dolor sit amet consectetur adipisicing elit</h2>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit Quis, ratione dignissimos. Facere non soluta illum asperiores 
+            </p>
+        </div>
 
-																		</div>
-																	</td>
-																</tr>
+        <div class="full-img min_margin">
+            <img src="assets/media/home/top_view.png" alt="">
+        </div>
+    </div>
+</section>
 
-															</tbody>
-															<!--end::Table body-->
-														</table>
-														<!--end::Table-->
-													</div>
-													<!--end::Table-->
+<section class="min_margin">
+    <div class="section-wreapper block-section">
+        <div class="section_intro">
+            <h2> Lorem ipsum dolor sit amet consectetur adipisicing elit</h2>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit Quis, ratione dignissimos. Facere non soluta illum asperiores 
+            </p>
+        </div>
 
-													<div class="table-responsive item--card mb-4">
-														<!--begin::Table-->
-														<table
-															class="table table-row-dashed table-row-gray-300 align-middle gs-0 gy-4">
+        <div class="full-img">
+            <img src="assets/media/home/livesync-on_2x.a6b17784.jpg" alt="">
+        </div>
 
-															<!--begin::Table body-->
-															<tbody>
-																<tr>
-
-																	<td>
-																		<div class="d-flex align-items-center">
-																			<div class="symbol symbol-45px me-5">
-																				<img src="assets/media/avatars/blank.png"
-																					alt="" />
-																			</div>
-																			<div
-																				class="d-flex justify-content-start flex-column">
-																				<span
-																					class="text-dark fw-bold text-hover-primary fs-6">John
-																					Doe</span>
-																				<span
-																					class="text-muted fw-semibold text-muted d-block fs-7">johndoe@gmail.com</span>
-																			</div>
-																		</div>
-																	</td>
-																	<td>
-																		<p href="#"
-																			class="text-dark fw-bold text-hover-primary d-block fs-6">
-																			54000 FCFA</p>
-																	</td>
-																	<td>
-																		<p href="#"
-																			class="text-dark fw-bold text-hover-primary d-block fs-6">
-																			12/09/2022</p>
-																	</td>
-																	<td class="text-end">
-																		<!--begin::Label-->
-																		<span
-																			class="badge badge-light-success fs-base">En
-																			cours</span>
-																	</td>
-																	<td>
-																		<div
-																			class="d-flex justify-content-end flex-shrink-0">
-																			<a href="#"
-																				class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1" data-bs-toggle="modal"
-																				data-bs-target="#warning-modal">
-																				<!--begin::Svg Icon | path: icons/duotune/general/gen019.svg-->
-																				<span class="svg-icon svg-icon-3">
-																					<svg width="24" height="24"
-																						viewBox="0 0 24 24" fill="none"
-																						xmlns="http://www.w3.org/2000/svg">
-																						<rect opacity="0.3" x="2" y="2"
-																							width="20" height="20"
-																							rx="5"
-																							fill="currentColor" />
-																						<path
-																							d="M10.4343 12.4343L8.75 10.75C8.33579 10.3358 7.66421 10.3358 7.25 10.75C6.83579 11.1642 6.83579 11.8358 7.25 12.25L10.2929 15.2929C10.6834 15.6834 11.3166 15.6834 11.7071 15.2929L17.25 9.75C17.6642 9.33579 17.6642 8.66421 17.25 8.25C16.8358 7.83579 16.1642 7.83579 15.75 8.25L11.5657 12.4343C11.2533 12.7467 10.7467 12.7467 10.4343 12.4343Z"
-																							fill="currentColor" />
-																					</svg>
-																				</span>
-																				<!--end::Svg Icon-->
-																			</a>
-																			<a href="#"
-																				class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1" data-bs-toggle="modal"
-																				data-bs-target="#danger-modal">
-																				<!--begin::Svg Icon | path: icons/duotune/art/art005.svg-->
-																				<span class="svg-icon svg-icon-3">
-																					<svg width="24" height="24"
-																						viewBox="0 0 24 24" fill="none"
-																						xmlns="http://www.w3.org/2000/svg">
-																						<rect opacity="0.3" x="2" y="2"
-																							width="20" height="20"
-																							rx="10"
-																							fill="currentColor" />
-																						<rect x="11" y="14" width="7"
-																							height="2" rx="1"
-																							transform="rotate(-90 11 14)"
-																							fill="currentColor" />
-																						<rect x="11" y="17" width="2"
-																							height="2" rx="1"
-																							transform="rotate(-90 11 17)"
-																							fill="currentColor" />
-																					</svg>
-																				</span>
-																				<!--end::Svg Icon-->
-																			</a>
-
-																		</div>
-																	</td>
-																</tr>
-
-															</tbody>
-															<!--end::Table body-->
-														</table>
-														<!--end::Table-->
-													</div>
-													<!--end::Table-->
-
-													<div class="table-responsive item--card mb-4">
-														<!--begin::Table-->
-														<table
-															class="table table-row-dashed table-row-gray-300 align-middle gs-0 gy-4">
-
-															<!--begin::Table body-->
-															<tbody>
-																<tr>
-
-																	<td>
-																		<div class="d-flex align-items-center">
-																			<div class="symbol symbol-45px me-5">
-																				<img src="assets/media/avatars/blank.png"
-																					alt="" />
-																			</div>
-																			<div
-																				class="d-flex justify-content-start flex-column">
-																				<span
-																					class="text-dark fw-bold text-hover-primary fs-6">John
-																					Doe</span>
-																				<span
-																					class="text-muted fw-semibold text-muted d-block fs-7">johndoe@gmail.com</span>
-																			</div>
-																		</div>
-																	</td>
-																	<td>
-																		<p href="#"
-																			class="text-dark fw-bold text-hover-primary d-block fs-6">
-																			54000 FCFA</p>
-																	</td>
-																	<td>
-																		<p href="#"
-																			class="text-dark fw-bold text-hover-primary d-block fs-6">
-																			12/09/2022</p>
-																	</td>
-																	<td class="text-end">
-																		<!--begin::Label-->
-																		<span
-																			class="badge badge-light-success fs-base">En
-																			cours</span>
-																	</td>
-																	<td>
-																		<div
-																			class="d-flex justify-content-end flex-shrink-0">
-																			<a href="#"
-																				class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1" data-bs-toggle="modal"
-																				data-bs-target="#warning-modal">
-																				<!--begin::Svg Icon | path: icons/duotune/general/gen019.svg-->
-																				<span class="svg-icon svg-icon-3">
-																					<svg width="24" height="24"
-																						viewBox="0 0 24 24" fill="none"
-																						xmlns="http://www.w3.org/2000/svg">
-																						<rect opacity="0.3" x="2" y="2"
-																							width="20" height="20"
-																							rx="5"
-																							fill="currentColor" />
-																						<path
-																							d="M10.4343 12.4343L8.75 10.75C8.33579 10.3358 7.66421 10.3358 7.25 10.75C6.83579 11.1642 6.83579 11.8358 7.25 12.25L10.2929 15.2929C10.6834 15.6834 11.3166 15.6834 11.7071 15.2929L17.25 9.75C17.6642 9.33579 17.6642 8.66421 17.25 8.25C16.8358 7.83579 16.1642 7.83579 15.75 8.25L11.5657 12.4343C11.2533 12.7467 10.7467 12.7467 10.4343 12.4343Z"
-																							fill="currentColor" />
-																					</svg>
-																				</span>
-																				<!--end::Svg Icon-->
-																			</a>
-																			<a href="#"
-																				class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1" data-bs-toggle="modal"
-																				data-bs-target="#danger-modal">
-																				<!--begin::Svg Icon | path: icons/duotune/art/art005.svg-->
-																				<span class="svg-icon svg-icon-3">
-																					<svg width="24" height="24"
-																						viewBox="0 0 24 24" fill="none"
-																						xmlns="http://www.w3.org/2000/svg">
-																						<rect opacity="0.3" x="2" y="2"
-																							width="20" height="20"
-																							rx="10"
-																							fill="currentColor" />
-																						<rect x="11" y="14" width="7"
-																							height="2" rx="1"
-																							transform="rotate(-90 11 14)"
-																							fill="currentColor" />
-																						<rect x="11" y="17" width="2"
-																							height="2" rx="1"
-																							transform="rotate(-90 11 17)"
-																							fill="currentColor" />
-																					</svg>
-																				</span>
-																				<!--end::Svg Icon-->
-																			</a>
-
-																		</div>
-																	</td>
-																</tr>
-
-															</tbody>
-															<!--end::Table body-->
-														</table>
-														<!--end::Table-->
-													</div>
-													<!--end::Table-->
-												</div>
-
-												<div class="tab-pane fade" id="incoming_tab" role="tabpanel">
-													<div class="table-responsive item--card mb-4">
-														<!--begin::Table-->
-														<table
-															class="table table-row-dashed table-row-gray-300 align-middle gs-0 gy-4">
-
-															<!--begin::Table body-->
-															<tbody>
-																<tr>
-
-																	<td>
-																		<div class="d-flex align-items-center">
-																			<div class="symbol symbol-45px me-5">
-																				<img src="assets/media/avatars/blank.png"
-																					alt="" />
-																			</div>
-																			<div
-																				class="d-flex justify-content-start flex-column">
-																				<span
-																					class="text-dark fw-bold text-hover-primary fs-6">John
-																					Doe</span>
-																				<span
-																					class="text-muted fw-semibold text-muted d-block fs-7">johndoe@gmail.com</span>
-																			</div>
-																		</div>
-																	</td>
-																	<td>
-																		<p href="#"
-																			class="text-dark fw-bold text-hover-primary d-block fs-6">
-																			54000 FCFA</p>
-																	</td>
-																	<td>
-																		<p href="#"
-																			class="text-dark fw-bold text-hover-primary d-block fs-6">
-																			12/09/2022</p>
-																	</td>
-																	<td class="text-end">
-																		<!--begin::Label-->
-																		<span
-																			class="badge badge-light-success fs-base">En attente</span>
-																	</td>
-																	<td>
-																		<div
-																			class="d-flex justify-content-end flex-shrink-0">
-																			<a href="#"
-																				class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1" data-bs-toggle="modal"
-																				data-bs-target="#warning-modal">
-																				<!--begin::Svg Icon | path: icons/duotune/general/gen019.svg-->
-																				<span class="svg-icon svg-icon-3">
-																					<svg width="24" height="24"
-																						viewBox="0 0 24 24" fill="none"
-																						xmlns="http://www.w3.org/2000/svg">
-																						<rect opacity="0.3" x="2" y="2"
-																							width="20" height="20"
-																							rx="5"
-																							fill="currentColor" />
-																						<path
-																							d="M10.4343 12.4343L8.75 10.75C8.33579 10.3358 7.66421 10.3358 7.25 10.75C6.83579 11.1642 6.83579 11.8358 7.25 12.25L10.2929 15.2929C10.6834 15.6834 11.3166 15.6834 11.7071 15.2929L17.25 9.75C17.6642 9.33579 17.6642 8.66421 17.25 8.25C16.8358 7.83579 16.1642 7.83579 15.75 8.25L11.5657 12.4343C11.2533 12.7467 10.7467 12.7467 10.4343 12.4343Z"
-																							fill="currentColor" />
-																					</svg>
-																				</span>
-																				<!--end::Svg Icon-->
-																			</a>
-																			<a href="#"
-																				class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1" data-bs-toggle="modal"
-																				data-bs-target="#danger-modal">
-																				<!--begin::Svg Icon | path: icons/duotune/art/art005.svg-->
-																				<span class="svg-icon svg-icon-3">
-																					<svg width="24" height="24"
-																						viewBox="0 0 24 24" fill="none"
-																						xmlns="http://www.w3.org/2000/svg">
-																						<rect opacity="0.3" x="2" y="2"
-																							width="20" height="20"
-																							rx="10"
-																							fill="currentColor" />
-																						<rect x="11" y="14" width="7"
-																							height="2" rx="1"
-																							transform="rotate(-90 11 14)"
-																							fill="currentColor" />
-																						<rect x="11" y="17" width="2"
-																							height="2" rx="1"
-																							transform="rotate(-90 11 17)"
-																							fill="currentColor" />
-																					</svg>
-																				</span>
-																				<!--end::Svg Icon-->
-																			</a>
-
-																		</div>
-																	</td>
-																</tr>
-
-															</tbody>
-															<!--end::Table body-->
-														</table>
-														<!--end::Table-->
-													</div>
-													<!--end::Table-->
-
-													<div class="table-responsive item--card mb-4">
-														<!--begin::Table-->
-														<table
-															class="table table-row-dashed table-row-gray-300 align-middle gs-0 gy-4">
-
-															<!--begin::Table body-->
-															<tbody>
-																<tr>
-
-																	<td>
-																		<div class="d-flex align-items-center">
-																			<div class="symbol symbol-45px me-5">
-																				<img src="assets/media/avatars/blank.png"
-																					alt="" />
-																			</div>
-																			<div
-																				class="d-flex justify-content-start flex-column">
-																				<span
-																					class="text-dark fw-bold text-hover-primary fs-6">John
-																					Doe</span>
-																				<span
-																					class="text-muted fw-semibold text-muted d-block fs-7">johndoe@gmail.com</span>
-																			</div>
-																		</div>
-																	</td>
-																	<td>
-																		<p href="#"
-																			class="text-dark fw-bold text-hover-primary d-block fs-6">
-																			54000 FCFA</p>
-																	</td>
-																	<td>
-																		<p href="#"
-																			class="text-dark fw-bold text-hover-primary d-block fs-6">
-																			12/09/2022</p>
-																	</td>
-																	<td class="text-end">
-																		<!--begin::Label-->
-																		<span
-																			class="badge badge-light-success fs-base">En
-																			cours</span>
-																	</td>
-																	<td>
-																		<div
-																			class="d-flex justify-content-end flex-shrink-0">
-																			<a href="#"
-																				class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1" data-bs-toggle="modal"
-																				data-bs-target="#warning-modal">
-																				<!--begin::Svg Icon | path: icons/duotune/general/gen019.svg-->
-																				<span class="svg-icon svg-icon-3">
-																					<svg width="24" height="24"
-																						viewBox="0 0 24 24" fill="none"
-																						xmlns="http://www.w3.org/2000/svg">
-																						<rect opacity="0.3" x="2" y="2"
-																							width="20" height="20"
-																							rx="5"
-																							fill="currentColor" />
-																						<path
-																							d="M10.4343 12.4343L8.75 10.75C8.33579 10.3358 7.66421 10.3358 7.25 10.75C6.83579 11.1642 6.83579 11.8358 7.25 12.25L10.2929 15.2929C10.6834 15.6834 11.3166 15.6834 11.7071 15.2929L17.25 9.75C17.6642 9.33579 17.6642 8.66421 17.25 8.25C16.8358 7.83579 16.1642 7.83579 15.75 8.25L11.5657 12.4343C11.2533 12.7467 10.7467 12.7467 10.4343 12.4343Z"
-																							fill="currentColor" />
-																					</svg>
-																				</span>
-																				<!--end::Svg Icon-->
-																			</a>
-																			<a href="#"
-																				class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1" data-bs-toggle="modal"
-																				data-bs-target="#danger-modal">
-																				<!--begin::Svg Icon | path: icons/duotune/art/art005.svg-->
-																				<span class="svg-icon svg-icon-3">
-																					<svg width="24" height="24"
-																						viewBox="0 0 24 24" fill="none"
-																						xmlns="http://www.w3.org/2000/svg">
-																						<rect opacity="0.3" x="2" y="2"
-																							width="20" height="20"
-																							rx="10"
-																							fill="currentColor" />
-																						<rect x="11" y="14" width="7"
-																							height="2" rx="1"
-																							transform="rotate(-90 11 14)"
-																							fill="currentColor" />
-																						<rect x="11" y="17" width="2"
-																							height="2" rx="1"
-																							transform="rotate(-90 11 17)"
-																							fill="currentColor" />
-																					</svg>
-																				</span>
-																				<!--end::Svg Icon-->
-																			</a>
-
-																		</div>
-																	</td>
-																</tr>
-
-															</tbody>
-															<!--end::Table body-->
-														</table>
-														<!--end::Table-->
-													</div>
-													<!--end::Table-->
-
-													<div class="table-responsive item--card mb-4">
-														<!--begin::Table-->
-														<table
-															class="table table-row-dashed table-row-gray-300 align-middle gs-0 gy-4">
-
-															<!--begin::Table body-->
-															<tbody>
-																<tr>
-
-																	<td>
-																		<div class="d-flex align-items-center">
-																			<div class="symbol symbol-45px me-5">
-																				<img src="assets/media/avatars/blank.png"
-																					alt="" />
-																			</div>
-																			<div
-																				class="d-flex justify-content-start flex-column">
-																				<span
-																					class="text-dark fw-bold text-hover-primary fs-6">John
-																					Doe</span>
-																				<span
-																					class="text-muted fw-semibold text-muted d-block fs-7">johndoe@gmail.com</span>
-																			</div>
-																		</div>
-																	</td>
-																	<td>
-																		<p href="#"
-																			class="text-dark fw-bold text-hover-primary d-block fs-6">
-																			54000 FCFA</p>
-																	</td>
-																	<td>
-																		<p href="#"
-																			class="text-dark fw-bold text-hover-primary d-block fs-6">
-																			12/09/2022</p>
-																	</td>
-																	<td class="text-end">
-																		<!--begin::Label-->
-																		<span
-																			class="badge badge-light-success fs-base">En
-																			cours</span>
-																	</td>
-																	<td>
-																		<div
-																			class="d-flex justify-content-end flex-shrink-0">
-																			<a href="#"
-																				class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1" data-bs-toggle="modal"
-																				data-bs-target="#warning-modal">
-																				<!--begin::Svg Icon | path: icons/duotune/general/gen019.svg-->
-																				<span class="svg-icon svg-icon-3">
-																					<svg width="24" height="24"
-																						viewBox="0 0 24 24" fill="none"
-																						xmlns="http://www.w3.org/2000/svg">
-																						<rect opacity="0.3" x="2" y="2"
-																							width="20" height="20"
-																							rx="5"
-																							fill="currentColor" />
-																						<path
-																							d="M10.4343 12.4343L8.75 10.75C8.33579 10.3358 7.66421 10.3358 7.25 10.75C6.83579 11.1642 6.83579 11.8358 7.25 12.25L10.2929 15.2929C10.6834 15.6834 11.3166 15.6834 11.7071 15.2929L17.25 9.75C17.6642 9.33579 17.6642 8.66421 17.25 8.25C16.8358 7.83579 16.1642 7.83579 15.75 8.25L11.5657 12.4343C11.2533 12.7467 10.7467 12.7467 10.4343 12.4343Z"
-																							fill="currentColor" />
-																					</svg>
-																				</span>
-																				<!--end::Svg Icon-->
-																			</a>
-																			<a href="#"
-																				class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1" data-bs-toggle="modal"
-																				data-bs-target="#danger-modal">
-																				<!--begin::Svg Icon | path: icons/duotune/art/art005.svg-->
-																				<span class="svg-icon svg-icon-3">
-																					<svg width="24" height="24"
-																						viewBox="0 0 24 24" fill="none"
-																						xmlns="http://www.w3.org/2000/svg">
-																						<rect opacity="0.3" x="2" y="2"
-																							width="20" height="20"
-																							rx="10"
-																							fill="currentColor" />
-																						<rect x="11" y="14" width="7"
-																							height="2" rx="1"
-																							transform="rotate(-90 11 14)"
-																							fill="currentColor" />
-																						<rect x="11" y="17" width="2"
-																							height="2" rx="1"
-																							transform="rotate(-90 11 17)"
-																							fill="currentColor" />
-																					</svg>
-																				</span>
-																				<!--end::Svg Icon-->
-																			</a>
-
-																		</div>
-																	</td>
-																</tr>
-
-															</tbody>
-															<!--end::Table body-->
-														</table>
-														<!--end::Table-->
-													</div>
-													<!--end::Table-->
-												</div>
-											</div>
-										</div>
-									</div>
+        <div class="full-img">
+            <img src="assets/media/home/rh-card_4x.921f4238.png" alt="">
+            <img src="assets/media/home/cs-card_4x.bb80263a.png" alt="">
+            <img src="assets/media/home/td-card_4x.123ba094.png" alt="">
+            <img src="assets/media/home/connect-card_4x.9db40d6e.png" alt="">
+        </div>
+    </div>
+</section>
 
 
-								</div>
-							</div>
-							<!--end::Timeline Widget 1-->
-						</div>
+<section class="start_now min_margin">
+    <div class="section-wreapper block-section">
+        <div class="section_intro">
+            <h2> Lorem ipsum dolor sit amet consectetur adipisicing elit</h2>
+           <a href="login.php" class="btn btn_outline w-100">Commencer
+           </a>
+        </div>
 
-					</div>
-				</div>
-				<?php include 'page_components/footer.php' ?>
-			</div>
+        <div class="full-img">
+            <img src="assets/media/home/perspective -laptop.png" alt="">
+        </div>
+    </div>
+</section>
 
-		</div>
-	</div>
+<footer >
+    <div class="section_wrapper">
+        <div class="copyright">
+            <p>&copy;2022 TRUSTWISE Tous droits reservés</p>
+        </div>
 
-	<div class="modal fade" tabindex="-1" id="warning-modal">
-		<div class="modal-dialog modal-dialog-centered">
-			<div aria-labelledby="swal2-title" aria-describedby="swal2-html-container"
-					class="swal2-popup swal2-modal swal2-icon-warning swal2-show" tabindex="-1" role="dialog"
-					aria-live="assertive" aria-modal="true" style="display: grid;"><button type="button"
-						class="swal2-close" aria-label="Close this dialog" style="display: none;">×</button>
-					<ul class="swal2-progress-steps" style="display: none;"></ul>
-					<div class="swal2-icon swal2-warning swal2-icon-show" style="display: flex;">
-						<div class="swal2-icon-content">!</div>
-					</div><img class="swal2-image" style="display: none;">
-					<h2 class="swal2-title" id="swal2-title" style="display: none;"></h2>
-					<div class="swal2-html-container" id="swal2-html-container" style="display: block;">Êtes-vous sur de voulir annuler cette transaction?</div><input class="swal2-input" style="display: none;"><input
-						type="file" class="swal2-file" style="display: none;">
-					<div class="swal2-range" style="display: none;"><input type="range"><output></output></div><select
-						class="swal2-select" style="display: none;"></select>
-					<div class="swal2-radio" style="display: none;"></div><label for="swal2-checkbox"
-						class="swal2-checkbox" style="display: none;"><input type="checkbox"><span
-							class="swal2-label"></span></label><textarea class="swal2-textarea"
-						style="display: none;"></textarea>
-					<div class="swal2-validation-message" id="swal2-validation-message" style="display: none;"></div>
-					<div class="swal2-actions" style="display: flex;">
-						<div class="swal2-loader"></div><button type="button"
-							class="swal2-confirm btn fw-bold btn-danger" aria-label=""
-							style="display: inline-block;">Oui continuer!</button><button type="button" class="swal2-deny"
-							aria-label="" style="display: none;"></button><button type="button"
-							class="swal2-cancel btn fw-bold btn-active-light-primary" aria-label=""
-							style="display: inline-block;">Non, annuler</button>
-					</div>
-					<div class="swal2-footer" style="display: none;"></div>
-					<div class="swal2-timer-progress-bar-container">
-						<div class="swal2-timer-progress-bar" style="display: none;"></div>
-					</div>
-				</div>
-		</div>
-	</div>
+        <div class="links">
+            <a href="http://">Mentions légales</a>
+            <span></span>
+            <a href="http://">Termes et conditions</a>
+        </div>
+    </div>
+</footer>
 
-	</div>
-
-	<div class="modal fade" tabindex="-1" id="danger-modal">
-		<div class="modal-dialog modal-dialog-centered">
-			<div aria-labelledby="swal2-title" aria-describedby="swal2-html-container"
-						class="swal2-popup swal2-modal swal2-icon-error swal2-show" tabindex="-1" role="dialog"
-						aria-live="assertive" aria-modal="true" style="display: grid;"><button type="button" class="swal2-close"
-							aria-label="Close this dialog" style="display: none;">×</button>
-						<ul class="swal2-progress-steps" style="display: none;"></ul>
-						<div class="swal2-icon swal2-error swal2-icon-show" style="display: flex;"><span class="swal2-x-mark">
-								<span class="swal2-x-mark-line-left"></span>
-								<span class="swal2-x-mark-line-right"></span>
-							</span>
-						</div><img class="swal2-image" style="display: none;">
-						<h2 class="swal2-title" id="swal2-title" style="display: none;"></h2>
-						<div class="swal2-html-container" id="swal2-html-container" style="display: block;">Sorry, looks like
-							there are some errors detected, please try again.</div><input class="swal2-input"
-							style="display: none;"><input type="file" class="swal2-file" style="display: none;">
-						<div class="swal2-range" style="display: none;"><input type="range"><output></output></div><select
-							class="swal2-select" style="display: none;"></select>
-						<div class="swal2-radio" style="display: none;"></div><label for="swal2-checkbox" class="swal2-checkbox"
-							style="display: none;"><input type="checkbox"><span class="swal2-label"></span></label><textarea
-							class="swal2-textarea" style="display: none;"></textarea>
-						<div class="swal2-validation-message" id="swal2-validation-message" style="display: none;"></div>
-						<div class="swal2-actions" style="display: flex;">
-							<div class="swal2-loader"></div><button type="button" class="swal2-confirm btn btn-primary"
-								aria-label="" style="display: inline-block;">Ok, got it!</button><button type="button"
-								class="swal2-deny" aria-label="" style="display: none;">No</button><button type="button"
-								class="swal2-cancel" aria-label="" style="display: none;">Cancel</button>
-						</div>
-						<div class="swal2-footer" style="display: none;"></div>
-						<div class="swal2-timer-progress-bar-container">
-							<div class="swal2-timer-progress-bar" style="display: none;"></div>
-						</div>
-					</div>
-		</div>
-	</div>
-		
-
-		<div id="kt_scrolltop" class="scrolltop" data-kt-scrolltop="true">
-			<span class="svg-icon">
-				<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-					<rect opacity="0.5" x="13" y="6" width="13" height="2" rx="1" transform="rotate(90 13 6)"
-						fill="currentColor" />
-					<path
-						d="M12.5657 8.56569L16.75 12.75C17.1642 13.1642 17.8358 13.1642 18.25 12.75C18.6642 12.3358 18.6642 11.6642 18.25 11.25L12.7071 5.70711C12.3166 5.31658 11.6834 5.31658 11.2929 5.70711L5.75 11.25C5.33579 11.6642 5.33579 12.3358 5.75 12.75C6.16421 13.1642 6.83579 13.1642 7.25 12.75L11.4343 8.56569C11.7467 8.25327 12.2533 8.25327 12.5657 8.56569Z"
-						fill="currentColor" />
-				</svg>
-			</span>
-		</div>
-		<?php include 'page_components/scripts.php' ?>
 </body>
-
 </html>

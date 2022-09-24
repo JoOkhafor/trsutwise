@@ -100,7 +100,7 @@ require_once "core/config.php";
 												<div class="tab-pane fade show active" id="outgoing_tab"
 													role="tabpanel">
 
-													<?php $sql = "SELECT * FROM `transactions` WHERE transaction_status='pending' ORDER BY `transactions`.`transaction_hour` DESC LIMIT 10 " ; ?>
+													<?php $sql = "SELECT * FROM `transactions` WHERE transaction_status='pending' ORDER BY `transaction_date` DESC LIMIT 10 " ; ?>
 													<?php if($result = $pdo->query($sql)):?>
 														<?php	if($result->rowCount() > 0): ?>
 															
@@ -122,13 +122,10 @@ require_once "core/config.php";
 																								<img src="assets/media/avatars/blank.png"
 																									alt="" />
 																							</div>
-																							<div
-																								class="d-flex justify-content-start flex-column">
-																								<span
-																									class="text-dark fw-bold text-hover-primary fs-6">John
-																									Doe</span>
-																								<span
-																									class="text-muted fw-semibold text-muted d-block fs-7">johndoe@gmail.com</span>
+																								<div class="d-flex justify-content-start flex-column">
+																								<span class="text-muted fw-semibold text-muted d-block fs-7">Par:</span>
+																									<span class="text-dark fw-bold text-hover-primary fs-6"><?= $_SESSION['user_name'] ?>
+																								</span>
 																							</div>
 																						</div>
 																					</td>
@@ -149,7 +146,7 @@ require_once "core/config.php";
 																					<td>
 																						<div
 																							class="d-flex justify-content-end flex-shrink-0">
-																							<a href="transaction-details.php"
+																							<a href="transaction-details.php?tr_id=<?= $row['id_transaction']?>"
 																								class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1">
 																								<!--begin::Svg Icon | path: icons/duotune/general/gen019.svg-->
 																								<span class="svg-icon svg-icon-3">
@@ -167,30 +164,7 @@ require_once "core/config.php";
 																								</span>
 																								<!--end::Svg Icon-->
 																							</a>
-																							<a href="#"
-																								class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1" data-bs-toggle="modal"
-																								data-bs-target="#danger-modal">
-																								<!--begin::Svg Icon | path: icons/duotune/art/art005.svg-->
-																								<span class="svg-icon svg-icon-3">
-																									<svg width="24" height="24"
-																										viewBox="0 0 24 24" fill="none"
-																										xmlns="http://www.w3.org/2000/svg">
-																										<rect opacity="0.3" x="2" y="2"
-																											width="20" height="20"
-																											rx="10"
-																											fill="currentColor" />
-																										<rect x="11" y="14" width="7"
-																											height="2" rx="1"
-																											transform="rotate(-90 11 14)"
-																											fill="currentColor" />
-																										<rect x="11" y="17" width="2"
-																											height="2" rx="1"
-																											transform="rotate(-90 11 17)"
-																											fill="currentColor" />
-																									</svg>
-																								</span>
-																								<!--end::Svg Icon-->
-																							</a>
+																							
 
 																						</div>
 																					</td>
