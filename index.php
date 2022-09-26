@@ -31,7 +31,7 @@
 
         <div class="hero">
             <div class="hero_intro">
-                <h4>Avalaible</h4>
+                <h4>TRUSTWISE</h4>
                 <h1>L'expérience utltime pour les transaction modernes</h1>
             </div>
         </div>
@@ -41,10 +41,10 @@
         </div>
 
         <div class="section_bottom">
-            <h2> Immerse yourself.
+            <h2> Tout en un seul et unique endroit sécurisé.
             </h2>
             <p>
-                ur asset pages are more than just beautiful. Dig deeper through financials, news, estimates and more from anywhere in the app.
+            Des millions d'utilisateurs dans le monde nous ontchoisit pour une bonne raison : la simplicité. Payez avec votre adresse email et votre mot de passe plus rapidement qu'en sortant votre portefeuille
             </p>
         </div>
 
@@ -57,8 +57,8 @@
    <section>
         <div class="section-wreapper block-section">
             <div class="section_intro">
-                <h2> See the big picture.</h2>
-                <p>Know what’s happening now and what might happen next. Fey lets you keep an eye on the markets while consolidating your portfolio.
+                <h2>Payez en ligne ou sur votre mobile..</h2>
+                <p>Achetez en toute tranquillité : nous protégeons vos achats éligibles. Si un objet éligible n'est pas livré ou ne correspond pas à sa description, nous nous chargeons de communiquer avec le vendeur. Soumis à conditions.
                 </p>
             </div>
 
@@ -67,9 +67,12 @@
             </div>
 
             <div class="section_bottom">
-                <h2> Lorem ipsum dolor sit amet consectetur adipisicing elit</h2>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit Quis, ratione dignissimos. Facere non soluta illum asperiores 
+                <h2> Nul besoin de chercher votre carte</h2>
+                <p>Grâce à Cliquer pour payer avec trustwise, vous pouvez effectuer
+vos achats en ligne plus rapidement et plus intelligemment, et vous
+n’avez plus de mot de passe à mémoriser.
+
+
                 </p>
             </div>
 
@@ -82,12 +85,12 @@
         <div class="section_wrapper">
            <div class="row">
             <div class="col-unit-6 ">
-                <h2> Lorem ipsum dolor sit amet consectetur</h2>
+                <h2> La façon sûre et simple de payer en ligne</h2>
             </div>
 
             <div class="col-unit-6 description_content">
                 <p>
-                    The Fey Command lets you have full control at your fingertips. Manage your portfolio, view transactions and execute real-time orders in seconds, all without ever touching your mouse.
+                    Payez des biens et services sans communiquer vos informations financières au vendeur. C'est simple, plus rapide et plus sécurisé. Des frais de conversion de devise peuvent s'appliquer.
                 </p>
             </div>
            </div>
@@ -100,15 +103,15 @@
    <section class="features">
         <div class="section-wreapper block-section">
             <div class="section_intro">
-                <h2> Everything, unlike anything.</h2>
+                <h2>Des renseignements de paiement cryptés.</h2>
                 <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit Quis, ratione dignissimos. Facere non soluta illum asperiores 
+                Achetez en toute tranquillité : nous protégeons vos achats éligibles. Si un objet éligible n'est pas livré ou ne correspond pas à sa description, nous nous chargeons de communiquer avec le vendeur. Soumis à conditions. 
                 </p>
             </div>
 
             <div class="row">
                 <div class="grid-unit-4 feature_description">
-                  <p>Create an idea from our instant search, track an asset’s performance and seamlessly execute your positions. Fey encourages thoughtful decisions while making you even more productive.</p>  
+                  <p>Les renseignements de votre carte Mastercard sont stockés dans Cliquer pour payer, de sorte que vous pouvez effectuer vos achats sans avoir besoin de votre carte ou de vos détails de paiement. .</p>  
                 </div>
                 <div class="grid-unit-6">
                     <div class="full-img">
@@ -122,9 +125,9 @@
    <section class="min_margin">
     <div class="section-wreapper block-section">
         <div class="section_intro">
-            <h2> Lorem ipsum dolor sit amet consectetur adipisicing elit</h2>
+            <h2> Achetez dans le monde entier.</h2>
             <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit Quis, ratione dignissimos. Facere non soluta illum asperiores 
+            Inutile de prendre un billet d'avion pour faire votre shopping dans le monde entier. Faites votre shopping dans des boutiques du monde entier en quelques clics seulement avec votre compte Trustwise
             </p>
         </div>
 
@@ -137,15 +140,12 @@
 <section class="min_margin">
     <div class="section-wreapper block-section">
         <div class="section_intro">
-            <h2> Lorem ipsum dolor sit amet consectetur adipisicing elit</h2>
+            <h2>Une protection contre la fraude</h2>
             <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit Quis, ratione dignissimos. Facere non soluta illum asperiores 
+            Comme toujours, lorsque vous effectuez un achat avec Trustwise, vous êtes protégé contre les transactions non autorisées grâce à la Responsabilité zéro1 et contre le vol d’identité avec Protection contre le vol d’identité de Mastercard.2
             </p>
         </div>
 
-        <div class="full-img">
-            <img src="assets/media/home/livesync-on_2x.a6b17784.jpg" alt="">
-        </div>
 
         <div class="full-img">
             <img src="assets/media/home/rh-card_4x.921f4238.png" alt="">
@@ -160,7 +160,7 @@
 <section class="start_now min_margin">
     <div class="section-wreapper block-section">
         <div class="section_intro">
-            <h2> Lorem ipsum dolor sit amet consectetur adipisicing elit</h2>
+            <h2> Votre argent au bon endroit.</h2>
            <a href="login.php" class="btn btn_outline w-100">Commencer
            </a>
         </div>
