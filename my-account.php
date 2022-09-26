@@ -90,7 +90,7 @@ unset($pdo);
 										<!--end::Label-->
 										<!--begin::Col-->
 										<div class="col-lg-8 fv-row">
-											<span class="fw-semibold text-gray-800 fs-6"><?= $row['pays'] ?></span>
+											<span class="fw-semibold text-gray-800 fs-6" style="text-transform: capitalize;" placeholder="pays" ><?= $row['pays'] ?></span>
 										</div>
 										<!--end::Col-->
 									</div>

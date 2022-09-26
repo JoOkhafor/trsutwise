@@ -5,9 +5,11 @@
     return $url; 
   }
 
-
+$aside_form = true;
   if (current_page() != "new-transaction-fund.php" && current_page() != "new-transaction-summary.php" && current_page() != "transaction-done.php") {
 	require_once('core/new_transaction_process.php');
+    $aside_form = false;
+
   }
 
 
@@ -38,7 +40,7 @@ data-kt-drawer-toggle="#kt_aside_toggle">
         data-kt-scroll-wrappers="#kt_aside, #kt_aside_menu, #kt_aside_menu_wrapper"
         data-kt-scroll-offset="100">
         <!--begin::Menu-->
-      <?php if (current_page() != "new-transaction-fund.php" && current_page() != "new-transaction-summary.php" && current_page() != "transaction-done.php"):?>
+      <?php if (!($aside_form)):?>
         <form class="pt-1" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
             <!--begin::Heading-->
             <h3 class="fw-semibold text-dark mb-7">Creer une nouvelle <br> transaction</h3>
@@ -46,18 +48,18 @@ data-kt-drawer-toggle="#kt_aside_toggle">
 
 
             <!--begin::Input group-->
-            <div class="mb-5">
+            <div class="mb-5 text-start">
                 <input type="text" name="montant_transaction"
                     class="form-control form-control-sm form-control-solid" placeholder="Montant" <?php echo (!empty($montant_transaction_err)) ? 'is-invalid' : ''; ?> value="<?php echo $montant_transaction; ?>">
-                    <span class="invalid-feedback text-danger"><?php echo $montant_transaction_err; ?></span>
+                    <span class="text-danger py-2 mt-1"><?php echo $montant_transaction_err; ?></span>
             </div>
             <!--end::Input group-->
             <!--begin::Input group-->
-            <div class="mb-5">
+            <div class="mb-5 text-start">
                 <input type="text" name="mail_destinataire"
                     class="form-control form-control-sm form-control-solid"
                     placeholder="Email du destinataire" <?php echo (!empty($mail_destinataire_err)) ? 'is-invalid' : ''; ?> value="<?php echo $mail_destinataire; ?>">
-                    <span class="invalid-feedback text-danger"><?php echo $mail_destinataire_err; ?></span>
+                    <p class="text-danger"><?php echo $mail_destinataire_err; ?></p>
             </div>
             <!--end::Input group-->
 
@@ -70,7 +72,26 @@ data-kt-drawer-toggle="#kt_aside_toggle">
             <!--end::Actions-->
         </form>
 
-    <?php endif ?>
+    <?php endif ?> 
+
+    <?php if($aside_form): ?>
+        <div class="card-body d-flex flex-column flex-center">
+											<!--begin::Heading-->
+											<div class="mb-2">
+												<!--begin::Title-->
+												<h1 class="fw-semibold text-gray-800 text-center lh-lg">Encore quelques étapes</h1>
+												<!--end::Title-->
+												<!--begin::Illustration-->
+												<div class="py-10 text-center">
+													<img src="assets/media/svg/illustrations/easy/2.svg" class="theme-light-show w-200px" alt="">
+													<img src="assets/media/svg/illustrations/easy/2-dark.svg" class="theme-dark-show w-200px" alt="">
+												</div>
+												<!--end::Illustration-->
+											</div>
+											<!--end::Heading-->
+											
+										</div>
+    <?php endif; ?>
     </div>
     <!--end::Aside Menu-->
 </div>

@@ -28,6 +28,12 @@ function active($currect_page){
   } elseif (page_title() == "my-account.php") {
 	$main_title ='Mon compte';
 	$sub_title = 'Parametrer mon compte';
+  } elseif (page_title() == "my-account.php" || page_title() == "account-settings.php" || page_title() == "account-billing-info.php" ) {
+	$main_title ='Mon compte';
+	$sub_title = 'Parametrer mon compte';
+  } else{
+	$main_title ='Nouvelle transaction';
+	$sub_title = 'Créer une nouvelle transaction';
   }
   
 
@@ -101,7 +107,7 @@ function active($currect_page){
     align-items: flex-end;">
 									<!--begin::Svg Icon | path: icons/duotune/general/gen060.svg-->
 									<div class="symbol  symbol-40px px-4 mb-3">
-										<img src="assets/media/avatars/blank.png" alt="photo" />
+										<img src="assets/media/profile/<?= $_SESSION['user_profile'] ?>" alt="photo" />
 									</div>
 									<span><b><?php echo htmlspecialchars($_SESSION["user_name"])?></b></span>
 								</a>

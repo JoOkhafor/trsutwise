@@ -1,7 +1,9 @@
-<?php require_once('page_components/session_setter.php');
-require_once "core/config.php"; ?>
 
-<?php
+<?php 
+require_once('page_components/session_setter.php');
+require_once "core/config.php"; 
+
+
 
 date_default_timezone_set('Africa/Lome');
 function id_generator($length='14', $charset='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789')
@@ -19,16 +21,22 @@ try{
     $sql = "SELECT * FROM users_register WHERE email= '$mail_recepteur'";  
     $result = $pdo->query($sql);
     $row = $result->fetch();
-    unset($result);
+   
+	$id_recepteur = $row['user_id'];
+	$email_recepteur = $row['email'];
+	$name_recepteur = $row['user_name'];
+
+	unset($result);
+	
 
 } catch(PDOException $e){
     die("ERROR: Could not able to execute $sql. " . $e->getMessage());
 } 
 
-$id_recepteur = $row['user_id'];
+$name_sender = $_SESSION['user_name'];
 $id_transaction = id_generator();
 $transaction_date = date('d/m/Y');
-$transaction_hour = date('h:i');
+$transaction_hour = date('H:i');
 $transaction_status = 'pending';
 	if($_SERVER["REQUEST_METHOD"] == "POST"){
 		// Attempt insert query execution
@@ -46,15 +54,53 @@ $transaction_status = 'pending';
 		$stmt->bindParam(':id_recepteur',$id_recepteur);
 		$stmt->bindParam(':transaction_status',$transaction_status);
 		
-		// Execute the prepared statement
 		$stmt->execute();
+
+		// require 'vendor/autoload.php';
+		// USE \Mailjet\Resources;
+		// $mj = new \Mailjet\Client(API_USER, API_LOGIN,true,['version' => 'v3.1']);
+		// $body = [
+		//   'Messages' => [
+		// 	[
+		// 	  'From' => [
+		// 		'Email' => "noreply@trustwise.easygroupe.org",
+		// 		'Name' => "Trustwise"
+		// 	  ],
+		// 	  'To' => [
+		// 		[
+		// 		  'Email' => "$email_recepteur",
+		// 		  'Name' => "$name_recepteur "
+		// 		]
+		// 	  ],
+		// 	  'Subject' => "Nouvelle transaction",
+		// 	  'HTMLPart' => "<h3>Vous avez une nouvelle transaction de $name_sender. </h3> <br> Connecez vous à votre compte pour plus de détails.",
+		// 	  'CustomID' => "AppGettingStartedTest"
+		// 	]
+		//   ]
+		// ];
+		// $response = $mj->post(Resources::$Email, ['body' => $body]);
+		// $response->success();
+
+		
+		
+
 		header("location: transactions.php");
 	} catch(PDOException $e){
 		die("ERROR: Could not able to execute $sql. " . $e->getMessage());
 	}
+
+	unset($stmt);
 	
 	// Close connection
 	unset($pdo);
+	}
+
+	function total($montant,$frais=1) {
+
+		$total=0;
+		$total = $montant + ($frais*($montant/100));
+		$total = round($total, 2);
+		return $total;
 	}
 ?>
 <!DOCTYPE html>
@@ -111,230 +157,145 @@ $transaction_status = 'pending';
 										</div>
 										<!--end::Nav-->
 										<!--begin::Form-->
-										<form class="mx-auto mw-600px w-100 pt-15 pb-10" novalidate="novalidate" ction="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
-											<!--begin::Step 1-->
-											<div class="current" data-kt-stepper-element="content">
-												<!--begin::Wrapper-->
-												<div class="w-100">
-													<!--begin::Heading-->
-													<div class="pb-10 pb-lg-15">
-														<!--begin::Title-->
-														<h2 class="fw-bold text-dark">Account Info</h2>
-														<!--end::Title-->
-														<!--begin::Notice-->
-														<div class="text-muted fw-semibold fs-6">If you need more info, please check out
-														<a href="#" class="link-primary fw-bold">Help Page</a>.</div>
-														<!--end::Notice-->
-													</div>
-													<!--end::Heading-->
-													<!--begin::Input group-->
-													<div class="mb-10 fv-row fv-plugins-icon-container fv-plugins-bootstrap5-row-valid">
-														<!--begin::Label-->
-														<label class="d-flex align-items-center form-label mb-3">Specify Team Size
-														<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" aria-label="Provide your team size to help us setup your billing" data-kt-initialized="1"></i></label>
-														<!--end::Label-->
-														<!--begin::Row-->
-														<div class="row mb-2" data-kt-buttons="true" data-kt-initialized="1">
-															<!--begin::Col-->
-															<div class="col">
-																<!--begin::Option-->
-																<label class="btn btn-outline btn-outline-dashed btn-active-light-primary w-100 p-4">
-																	<input type="radio" class="btn-check" name="account_team_size" value="1-1">
-																	<span class="fw-bold fs-3">1-1</span>
-																</label>
-																<!--end::Option-->
+										<div class="card">
+                                        <!--begin::Body-->
+									
+										<form class="mx-auto w-100 pt-15 pb-10"  action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
+                                        <div class="card-body p-lg-20">
+                                            <!--begin::Layout-->
+                                            <div class="d-flex flex-column flex-xl-row">
+                                                <!--begin::Content-->
+                                                <div class="flex-lg-row-fluid me-xl-10 mb-10 mb-xl-0">
+                                                    <!--begin::Invoice 2 content-->
+                                                    <div class="mt-n1">
+                                                        
+                                                        <!--begin::Wrapper-->
+                                                        <div class="m-0">
+                                                            <!--begin::Label-->
+                                                            <div class="fw-bold fs-3 text-gray-800 mb-8">Récapitulatif de l'opération</div>
+                                                            <!--end::Label-->
+                                                            <!--begin::Row-->
+                                                            <div class="row g-5 mb-11">
+                                                               
+                                                            </div>
+                                                            <!--end::Row-->
+                                                            <!--begin::Row-->
+                                                            <div class="row g-5 mb-12">
+                                                                    <!--end::Label-->
+                                                                    <div class="fw-semibold fs-7 text-gray-600 mb-1">Destinataire:</div>
+                                                                    <!--end::Label-->
+                                                                    <!--end::Text-->
+                                                                    <sapn class="fw-bold fs-6 text-gray-800 " ><?=  $row['user_name'] ?></span> <br>
+                                                                    <!--end::Text-->
+                                                                    <!--end::Description-->
+                                                                    <span class="fw-semibold fs-7 text-gray-700"><?=  $row['email'] ?></span><br>
+																	<span class="fw-semibold fs-7 text-gray-700"><?=  $row['telephone'] ?></span>
+                                                                <!--end::Col-->
+                                                               
+                                                            </div>
+                                                            <!--end::Row-->
+                                                            <!--begin::Content-->
+                                                           
+                                                            <!--end::Content-->
+                                                        </div>
+                                                        <!--end::Wrapper-->
+                                                    </div>
+                                                    <!--end::Invoice 2 content-->
+                                                </div>
+                                                <!--end::Content-->
+                                                <!--begin::Sidebar-->
+                                                <div class="m-0">
+                                                    <!--begin::Invoice 2 sidebar-->
+                                                    <div class="d-print-none border border-dashed border-gray-300 card-rounded h-lg-100 min-w-md-350px p-9 bg-lighten">
+                                                       
+                                                        <!--begin::Title-->
+                                                        <h6 class="mb-8 fw-bolder text-gray-600 text-hover-primary">Détails du paiement</h6>
+                                                        <!--end::Title-->
+                                                        <!--begin::Item-->
+                                                        <div class="mb-6 d-flex" style="justify-content: space-between;">
+                                                            <div>
+															<div class="fw-semibold text-gray-600 fs-7">Méthode:</div>
+                                                            <div class="fw-bold text-gray-800 fs-6">Carte bancaire</div>
 															</div>
-															<!--end::Col-->
-															<!--begin::Col-->
-															<div class="col">
-																<!--begin::Option-->
-																<label class="btn btn-outline btn-outline-dashed btn-active-light-primary w-100 p-4 active">
-																	<input type="radio" class="btn-check" name="account_team_size" checked="checked" value="2-10">
-																	<span class="fw-bold fs-3">2-10</span>
-																</label>
-																<!--end::Option-->
-															</div>
-															<!--end::Col-->
-															<!--begin::Col-->
-															<div class="col">
-																<!--begin::Option-->
-																<label class="btn btn-outline btn-outline-dashed btn-active-light-primary w-100 p-4">
-																	<input type="radio" class="btn-check" name="account_team_size" value="10-50">
-																	<span class="fw-bold fs-3">10-50</span>
-																</label>
-																<!--end::Option-->
-															</div>
-															<!--end::Col-->
-															<!--begin::Col-->
-															<div class="col">
-																<!--begin::Option-->
-																<label class="btn btn-outline btn-outline-dashed btn-active-light-primary w-100 p-4">
-																	<input type="radio" class="btn-check" name="account_team_size" value="50+">
-																	<span class="fw-bold fs-3">50+</span>
-																</label>
-																<!--end::Option-->
-															</div>
-															<!--end::Col-->
-														</div>
-														<!--end::Row-->
-														<!--begin::Hint-->
-														<div class="form-text">Customers will see this shortened version of your statement descriptor</div>
-														<!--end::Hint-->
-													<div class="fv-plugins-message-container invalid-feedback"></div></div>
-													<!--end::Input group-->
-													<!--begin::Input group-->
-													<div class="mb-10 fv-row fv-plugins-icon-container fv-plugins-bootstrap5-row-valid">
-														<!--begin::Label-->
-														<label class="form-label mb-3">Team Account Name</label>
-														<!--end::Label-->
-														<!--begin::Input-->
-														<input type="text" class="form-control form-control-lg form-control-solid" name="account_name" placeholder="" value="">
-														<!--end::Input-->
-													<div class="fv-plugins-message-container invalid-feedback"></div></div>
-													<!--end::Input group-->
-													<!--begin::Input group-->
-													<div class="mb-0 fv-row fv-plugins-icon-container fv-plugins-bootstrap5-row-valid">
-														<!--begin::Label-->
-														<label class="d-flex align-items-center form-label mb-5">Select Account Plan
-														<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" aria-label="Monthly billing will be based on your account plan" data-kt-initialized="1"></i></label>
-														<!--end::Label-->
-														<!--begin::Options-->
-														<div class="mb-0">
-															<!--begin:Option-->
-															<label class="d-flex flex-stack mb-5 cursor-pointer">
-																<!--begin:Label-->
-																<span class="d-flex align-items-center me-2">
-																	<!--begin::Icon-->
-																	<span class="symbol symbol-50px me-6">
-																		<span class="symbol-label">
-																			<!--begin::Svg Icon | path: icons/duotune/finance/fin001.svg-->
-																			<span class="svg-icon svg-icon-1 svg-icon-gray-600">
-																				<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-																					<path d="M20 19.725V18.725C20 18.125 19.6 17.725 19 17.725H5C4.4 17.725 4 18.125 4 18.725V19.725H3C2.4 19.725 2 20.125 2 20.725V21.725H22V20.725C22 20.125 21.6 19.725 21 19.725H20Z" fill="currentColor"></path>
-																					<path opacity="0.3" d="M22 6.725V7.725C22 8.325 21.6 8.725 21 8.725H18C18.6 8.725 19 9.125 19 9.725C19 10.325 18.6 10.725 18 10.725V15.725C18.6 15.725 19 16.125 19 16.725V17.725H15V16.725C15 16.125 15.4 15.725 16 15.725V10.725C15.4 10.725 15 10.325 15 9.725C15 9.125 15.4 8.725 16 8.725H13C13.6 8.725 14 9.125 14 9.725C14 10.325 13.6 10.725 13 10.725V15.725C13.6 15.725 14 16.125 14 16.725V17.725H10V16.725C10 16.125 10.4 15.725 11 15.725V10.725C10.4 10.725 10 10.325 10 9.725C10 9.125 10.4 8.725 11 8.725H8C8.6 8.725 9 9.125 9 9.725C9 10.325 8.6 10.725 8 10.725V15.725C8.6 15.725 9 16.125 9 16.725V17.725H5V16.725C5 16.125 5.4 15.725 6 15.725V10.725C5.4 10.725 5 10.325 5 9.725C5 9.125 5.4 8.725 6 8.725H3C2.4 8.725 2 8.325 2 7.725V6.725L11 2.225C11.6 1.925 12.4 1.925 13.1 2.225L22 6.725ZM12 3.725C11.2 3.725 10.5 4.425 10.5 5.225C10.5 6.025 11.2 6.725 12 6.725C12.8 6.725 13.5 6.025 13.5 5.225C13.5 4.425 12.8 3.725 12 3.725Z" fill="currentColor"></path>
-																				</svg>
-																			</span>
-																			<!--end::Svg Icon-->
-																		</span>
-																	</span>
-																	<!--end::Icon-->
-																	<!--begin::Description-->
-																	<span class="d-flex flex-column">
-																		<span class="fw-bold text-gray-800 text-hover-primary fs-5">Company Account</span>
-																		<span class="fs-6 fw-semibold text-muted">Use images to enhance your post flow</span>
-																	</span>
-																	<!--end:Description-->
-																</span>
-																<!--end:Label-->
-																<!--begin:Input-->
-																<span class="form-check form-check-custom form-check-solid">
-																	<input class="form-check-input" type="radio" name="account_plan" value="1">
-																</span>
-																<!--end:Input-->
-															</label>
-															<!--end::Option-->
-															<!--begin:Option-->
-															<label class="d-flex flex-stack mb-5 cursor-pointer">
-																<!--begin:Label-->
-																<span class="d-flex align-items-center me-2">
-																	<!--begin::Icon-->
-																	<span class="symbol symbol-50px me-6">
-																		<span class="symbol-label">
-																			<!--begin::Svg Icon | path: icons/duotune/graphs/gra006.svg-->
-																			<span class="svg-icon svg-icon-1 svg-icon-gray-600">
-																				<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-																					<path d="M13 5.91517C15.8 6.41517 18 8.81519 18 11.8152C18 12.5152 17.9 13.2152 17.6 13.9152L20.1 15.3152C20.6 15.6152 21.4 15.4152 21.6 14.8152C21.9 13.9152 22.1 12.9152 22.1 11.8152C22.1 7.01519 18.8 3.11521 14.3 2.01521C13.7 1.91521 13.1 2.31521 13.1 3.01521V5.91517H13Z" fill="currentColor"></path>
-																					<path opacity="0.3" d="M19.1 17.0152C19.7 17.3152 19.8 18.1152 19.3 18.5152C17.5 20.5152 14.9 21.7152 12 21.7152C9.1 21.7152 6.50001 20.5152 4.70001 18.5152C4.30001 18.0152 4.39999 17.3152 4.89999 17.0152L7.39999 15.6152C8.49999 16.9152 10.2 17.8152 12 17.8152C13.8 17.8152 15.5 17.0152 16.6 15.6152L19.1 17.0152ZM6.39999 13.9151C6.19999 13.2151 6 12.5152 6 11.8152C6 8.81517 8.2 6.41515 11 5.91515V3.01519C11 2.41519 10.4 1.91519 9.79999 2.01519C5.29999 3.01519 2 7.01517 2 11.8152C2 12.8152 2.2 13.8152 2.5 14.8152C2.7 15.4152 3.4 15.7152 4 15.3152L6.39999 13.9151Z" fill="currentColor"></path>
-																				</svg>
-																			</span>
-																			<!--end::Svg Icon-->
-																		</span>
-																	</span>
-																	<!--end::Icon-->
-																	<!--begin::Description-->
-																	<span class="d-flex flex-column">
-																		<span class="fw-bold text-gray-800 text-hover-primary fs-5">Developer Account</span>
-																		<span class="fs-6 fw-semibold text-muted">Use images to your post time</span>
-																	</span>
-																	<!--end:Description-->
-																</span>
-																<!--end:Label-->
-																<!--begin:Input-->
-																<span class="form-check form-check-custom form-check-solid">
-																	<input class="form-check-input" type="radio" checked="checked" name="account_plan" value="2">
-																</span>
-																<!--end:Input-->
-															</label>
-															<!--end::Option-->
-															<!--begin:Option-->
-															<label class="d-flex flex-stack mb-0 cursor-pointer">
-																<!--begin:Label-->
-																<span class="d-flex align-items-center me-2">
-																	<!--begin::Icon-->
-																	<span class="symbol symbol-50px me-6">
-																		<span class="symbol-label">
-																			<!--begin::Svg Icon | path: icons/duotune/graphs/gra008.svg-->
-																			<span class="svg-icon svg-icon-1 svg-icon-gray-600">
-																				<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-																					<path d="M13 10.9128V3.01281C13 2.41281 13.5 1.91281 14.1 2.01281C16.1 2.21281 17.9 3.11284 19.3 4.61284C20.7 6.01284 21.6 7.91285 21.9 9.81285C22 10.4129 21.5 10.9128 20.9 10.9128H13Z" fill="currentColor"></path>
-																					<path opacity="0.3" d="M13 12.9128V20.8129C13 21.4129 13.5 21.9129 14.1 21.8129C16.1 21.6129 17.9 20.7128 19.3 19.2128C20.7 17.8128 21.6 15.9128 21.9 14.0128C22 13.4128 21.5 12.9128 20.9 12.9128H13Z" fill="currentColor"></path>
-																					<path opacity="0.3" d="M11 19.8129C11 20.4129 10.5 20.9129 9.89999 20.8129C5.49999 20.2129 2 16.5128 2 11.9128C2 7.31283 5.39999 3.51281 9.89999 3.01281C10.5 2.91281 11 3.41281 11 4.01281V19.8129Z" fill="currentColor"></path>
-																				</svg>
-																			</span>
-																			<!--end::Svg Icon-->
-																		</span>
-																	</span>
-																	<!--end::Icon-->
-																	<!--begin::Description-->
-																	<span class="d-flex flex-column">
-																		<span class="fw-bold text-gray-800 text-hover-primary fs-5">Testing Account</span>
-																		<span class="fs-6 fw-semibold text-muted">Use images to enhance time travel rivers</span>
-																	</span>
-																	<!--end:Description-->
-																</span>
-																<!--end:Label-->
-																<!--begin:Input-->
-																<span class="form-check form-check-custom form-check-solid">
-																	<input class="form-check-input" type="radio" name="account_plan" value="3">
-																</span>
-																<!--end:Input-->
-															</label>
-															<!--end::Option-->
-														</div>
-														<!--end::Options-->
-													<div class="fv-plugins-message-container invalid-feedback"></div></div>
-													<!--end::Input group-->
-
-													
-												</div>
-												<!--end::Wrapper-->
-											</div>
-											<!--end::Step 1-->
-											 
-											<div class="d-flex flex-stack pt-15">
-												<!--begin::Wrapper-->
-												<div class="mr-2">
-													<a type="button" class="btn btn-lg btn-light-primary me-3" data-kt-stepper-action="previous">
-													<!--begin::Svg Icon | path: icons/duotune/arrows/arr063.svg-->
-													<span class="svg-icon svg-icon-4 me-1">
-														<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-															<rect opacity="0.5" x="6" y="11" width="13" height="2" rx="1" fill="currentColor"></rect>
-															<path d="M8.56569 11.4343L12.75 7.25C13.1642 6.83579 13.1642 6.16421 12.75 5.75C12.3358 5.33579 11.6642 5.33579 11.25 5.75L5.70711 11.2929C5.31658 11.6834 5.31658 12.3166 5.70711 12.7071L11.25 18.25C11.6642 18.6642 12.3358 18.6642 12.75 18.25C13.1642 17.8358 13.1642 17.1642 12.75 16.75L8.56569 12.5657C8.25327 12.2533 8.25327 11.7467 8.56569 11.4343Z" fill="currentColor"></path>
-														</svg>
-													</span>
-													<!--end::Svg Icon-->Retour</a>
-												</div>
-												<!--end::Wrapper-->
-												<!--begin::Wrapper-->
-												<div>
+															<img src="assets/media/svg/card-logos/visa.svg" alt="" class="h-25px" />
+                                                        </div>
+                                                        <!--end::Item-->
+                                                        <!--begin::Item-->
+                                                        <div class="mb-6">
+                                                            <div class="fw-semibold text-gray-600 fs-7">Numéro de carte :</div>
+															<div class="fw-semi-bold text-gray-800 fs-6"><?= $_SESSION['card_number']  ?></div>
+															
+                                                        </div>
+                                                        <!--end::Item-->
+                                                        <!--begin::Item-->
+                                                    </div>
+                                                    <!--end::Invoice 2 sidebar-->
+                                                </div>
+                                                <!--end::Sidebar-->
 												
-												<input  class="btn btn-primary" type="submit" value="Envoyer">
-												</div>
-												<!--end::Wrapper-->
-											</div>
+                                            </div>
+                                            <!--end::Layout-->
+
 											
-										</form>
+                                        </div>
+                                        <!--end::Body-->
+										<div class="flex-grow-1 w-100 ">
+                                                                <!--begin::Table-->
+                                                                <div class="table-responsive border-bottom mb-9">
+                                                                    <table class="table mb-3">
+                                                                      
+                                                                    </table>
+                                                                </div>
+                                                                <!--end::Table-->
+                                                                <!--begin::Container-->
+                                                                <div class="d-flex justify-content-end">
+                                                                    <!--begin::Section-->
+                                                                    <div class="w-100">
+                                                                        <!--begin::Item-->
+                                                                        <div class="d-flex flex-stack mb-3">
+                                                                            <!--begin::Accountname-->
+                                                                            <div class="fw-semibold pe-10 text-gray-600 fs-7">Sous total:</div>
+                                                                            <!--end::Accountname-->
+                                                                            <!--begin::Label-->
+                                                                            <div class="text-end fw-bold fs-6 text-gray-800"><?= $_SESSION['montant'].' FCFA'?></div>
+                                                                            <!--end::Label-->
+                                                                        </div>
+                                                                        <!--end::Item-->
+                                                                        <!--begin::Item-->
+                                                                        <div class="d-flex flex-stack mb-3">
+                                                                            <!--begin::Accountname-->
+                                                                            <div class="fw-semibold pe-10 text-gray-600 fs-7">Frais (1%)</div>
+                                                                            <!--end::Accountname-->
+                                                                            <!--begin::Label-->
+                                                                            <div class="text-end fw-bold fs-6 text-gray-800"><?= total( $_SESSION['montant']) - $_SESSION['montant'].' FCFA' ?></div>
+                                                                            <!--end::Label-->
+                                                                        </div>
+                                                                        <!--end::Item-->
+                                                                       
+                                                                        <!--begin::Item-->
+                                                                        <div class="d-flex flex-stack">
+                                                                            <!--begin::Code-->
+                                                                            <div class="fw-bold pe-10 text-warning fs-7">Total</div>
+                                                                            <!--end::Code-->
+                                                                            <!--begin::Label-->
+                                                                            <div class="text-end fw-bold  text-gray-800"><?=   total( $_SESSION['montant']).' FCFA' ?></div>
+                                                                            <!--end::Label-->
+                                                                        </div>
+                                                                        <!--end::Item-->
+                                                                    </div>
+                                                                    <!--end::Section-->
+                                                                </div>
+                                                                <!--end::Container-->
+                                                            </div>
+                                      </div>
 										<!--end::Form-->
+										<div class="d-flex flex-stack flex-end pt-15 px-15">
+												<!--begin::Wrapper-->
+												
+												<span></span>
+												<input  class="btn btn-primary" type="submit" value="Continuer">
+											</div>
+										</form>
 									</div>
 									<!--end::Stepper-->
 								</div>

@@ -16,7 +16,7 @@ function active_nav($currect_page){
 										<!--begin: Pic-->
 										<div class="me-7 mb-4">
 											<div class="symbol symbol-75px symbol-lg-75px symbol-fixed position-relative">
-												<img src="assets/media/avatars/blank.png" alt="image">
+												<img src="assets/media/profile/<?= $_SESSION['user_profile'] ?>" alt="image">
 												<div class="position-absolute translate-middle bottom-0 start-100 mb-6 bg-success rounded-circle border border-4 border-body h-20px w-20px"></div>
 											</div>
 										</div>
@@ -29,7 +29,7 @@ function active_nav($currect_page){
 												<div class="d-flex flex-column">
 													<!--begin::Name-->
 													<div class="d-flex align-items-center mb-2">
-														<a href="#" class="text-gray-900 text-hover-primary fs-2 fw-bold me-1">John Doe</a>
+														<a href="#" class="text-gray-900 text-hover-primary fs-2 fw-bold me-1"><?= $_SESSION['user_name'] ?> </a>
 													</div>
 													<!--end::Name-->
 													<!--begin::Info-->
@@ -42,8 +42,7 @@ function active_nav($currect_page){
 																<path opacity="0.3" d="M21 19H3C2.4 19 2 18.6 2 18V6C2 5.4 2.4 5 3 5H21C21.6 5 22 5.4 22 6V18C22 18.6 21.6 19 21 19Z" fill="currentColor" />
 																<path d="M21 5H2.99999C2.69999 5 2.49999 5.10005 2.29999 5.30005L11.2 13.3C11.7 13.7 12.4 13.7 12.8 13.3L21.7 5.30005C21.5 5.10005 21.3 5 21 5Z" fill="currentColor" />
 															</svg>
-														</span>
-														<!--end::Svg Icon-->john@doe.com</span>
+														</span> <?= $_SESSION['user_mail'] ?> </span>
 													</div>
 													<!--end::Info-->
 												</div>

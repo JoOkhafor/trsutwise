@@ -20009,6 +20009,37 @@ code:not([class*=language-]){
 .table.gs-10 td:last-child{
     padding-right:2.5rem
 }
+
+/* (A) PIE CHART */
+.donut {
+  /* (A1) CIRCLE */
+  width: 7vw; height: 7vw;
+  border-radius: 50%;
+
+  /* (A2) SEGMENTS */
+  background: conic-gradient(
+    var(--kt-primary) 80deg 190deg,
+    var(--kt-success) 190deg 360deg
+  );
+}
+
+/* (B) DONUT "CONVERSION" */
+/* (B1) SMALLER CIRCLE */
+.hole {
+  width: 5vw; height: 5vw;
+  border-radius: 50%;
+  background: #1e1e2d;
+}
+
+/* (B2) "CONVERT PIE TO DONUT" - CENTER SMALLER CIRCLE */
+.donut {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+  
 @media (min-width:576px){
     .table.g-sm-0 td{
         padding:0

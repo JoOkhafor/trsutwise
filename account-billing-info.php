@@ -1,3 +1,4 @@
+<?php require_once('page_components/session_setter.php') ?>
 <!DOCTYPE html>
 
 <html lang="en">
@@ -75,11 +76,10 @@
 													<!--begin::Info-->
 													<div class="d-flex flex-column py-2">
 														<!--begin::Owner-->
-														<div class="d-flex align-items-center fs-4 fw-bold mb-5">Marcus Morris
-														<span class="badge badge-light-success fs-7 ms-2">Primary</span></div>
+														<div class="align-items-center fs-4 fw-bold mb-5"><?= $_SESSION['user_name'] ?>
 														<!--end::Owner-->
 														<!--begin::Wrapper-->
-														<div class="d-flex align-items-center">
+														<div class="d-flex align-items-center mt-5">
 															<!--begin::Icon-->
 															<img src="assets/media/svg/card-logos/visa.svg" alt="" class="me-4" />
 															<!--end::Icon-->
@@ -93,12 +93,7 @@
 														<!--end::Wrapper-->
 													</div>
 													<!--end::Info-->
-													<!--begin::Actions-->
-													<div class="d-flex align-items-center py-2">
-														<button type="reset" class="btn btn-sm btn-light btn-active-light-primary me-3">Delete</button>
-														<button class="btn btn-sm btn-light btn-active-light-primary" data-bs-toggle="modal" data-bs-target="#kt_modal_new_card">Edit</button>
 													</div>
-													<!--end::Actions-->
 												</div>
 												<!--end::Card-->
 											</div>
@@ -192,7 +187,7 @@
                                                                         <span class="required">Nom sur la carte</span>
                                                                     </label>
                                                                     <!--end::Label-->
-                                                                    <input type="text" class="form-control form-control-solid" placeholder="" name="card_name" value="Max Doe" />
+                                                                    <input type="text" class="form-control form-control-solid" placeholder="" name="card_name"/>
                                                                 </div>
                                                                 <!--end::Input group-->
                                                                 <!--begin::Input group-->
@@ -203,7 +198,7 @@
                                                                     <!--begin::Input wrapper-->
                                                                     <div class="position-relative">
                                                                         <!--begin::Input-->
-                                                                        <input type="text" class="form-control form-control-solid" placeholder="Enter card number" name="card_number" value="4111 1111 1111 1111" />
+                                                                        <input type="text" class="form-control form-control-solid" placeholder="Enter card number" name="card_number" />
                                                                         <!--end::Input-->
                                                                         <!--begin::Card logos-->
                                                                         <div class="position-absolute translate-middle-y top-50 end-0 me-5">

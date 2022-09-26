@@ -1,4 +1,11 @@
 <?php
+session_start();
+ 
+// Check if the user is already logged in, if yes then redirect him to welcome page
+if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
+    header("location: dashboard.php");
+    exit;
+}
 // Include config file
 require_once "core/config.php";
  
@@ -12,7 +19,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	// Validate email
  if(empty(trim($_POST["email"]))){
 	$email_err = "Veuillez entrer une adresse mail";
-	} elseif(!preg_match('/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/', trim($_POST["email"]))){
+	} elseif(!filter_var(trim($_POST["email"]), FILTER_VALIDATE_EMAIL)){
 		$email_err = "Email non valide";
 	} else{
 		// Prepare a select statement
@@ -160,7 +167,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 								<div class="d-flex flex-stack py-2">
 									<!--begin::Back link-->
 									<div class="me-2">
-										<a href="../../demo3/dist/authentication/layouts/fancy/sign-in.html" class="btn btn-icon bg-light rounded-circle">
+										<a href="#" class="btn btn-icon bg-light rounded-circle">
 											<!--begin::Svg Icon | path: icons/duotune/arrows/arr002.svg-->
 											<span class="svg-icon svg-icon-2 svg-icon-gray-800">
 												<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -195,44 +202,44 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 										</div>
 										<!--end::Heading-->
 										<!--begin::Input group-->
-										<div class="position-relative mb-5">
+										<div class="position-relative mb-5 text-start">
 													<input class="form-control form-control-lg form-control-solid" type="text" placeholder="Nom & prénom" name="name" autocomplete="off" <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?> value="<?php echo $username; ?>">
-													<span class="invalid-feedback text-danger"><?php echo $username_err; ?></span>
+													<span class="text-danger"><?php echo $username_err; ?></span>
 													
 												</div>
 												<!--end::Input wrapper-->
-												<div class="position-relative mb-5">
+												<div class="position-relative mb-5 text-start">
 													<input class="form-control form-control-lg form-control-solid" type="date" placeholder="Date de naissance" name="date_naissance" autocomplete="off" <?php echo (!empty($date_naissance_err)) ? 'is-invalid' : ''; ?> value="<?php echo $date_naissance_err; ?>">
-													<span class="invalid-feedback text-danger"><?php echo $date_naissance_err; ?></span>
+													<span class=" text-danger"><?php echo $date_naissance_err; ?></span>
 													
 												</div>
 
-												<div class="position-relative mb-5">
+												<div class="position-relative mb-5 text-start">
 													<input class="form-control form-control-lg form-control-solid" type="text" placeholder="Pays" name="pays" autocomplete="off" <?php echo (!empty($pays_err)) ? 'is-invalid' : ''; ?> value="<?php echo $pays; ?>">
-													<span class="invalid-feedback text-danger"><?php echo $pays_err; ?></span>
+													<span class=" text-danger"><?php echo $pays_err; ?></span>
 													
 												</div>
 
-												<div class="position-relative mb-5">
+												<div class="position-relative mb-5 text-start">
 													<input class="form-control form-control-lg form-control-solid" type="tel" placeholder="Téléphone" name="num_telephone" autocomplete="off" <?php echo (!empty($num_telephone_err)) ? 'is-invalid' : ''; ?> value="<?php echo $num_telephone; ?>">
-													<span class="invalid-feedback text-danger"><?php echo $num_telephone_err; ?></span>
+													<span class=" text-danger"><?php echo $num_telephone_err; ?></span>
 												</div>
-												<div class="position-relative mb-5">
+												<div class="position-relative mb-5 text-start">
 													<input class="form-control form-control-lg form-control-solid" type="email" placeholder="E-mail" name="email" autocomplete="off" <?php echo (!empty($email_err)) ? 'is-invalid' : ''; ?> value="<?php echo $email; ?>">
-													<span class="invalid-feedback text-danger"><?php echo $email_err; ?></span>
+													<span class=" text-danger"><?php echo $email_err; ?></span>
 													
 												</div>
 										<!--begin::Input group=-->
-										<div class="fv-row mb-5">
+										<div class="fv-row mb-5 text-start">
 											<input class="form-control form-control-lg form-control-solid" type="password" placeholder="Mot de pass" name="password" <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?> value="<?php echo $password; ?>">
-											<span class="invalid-feedback text"><?php echo $password_err; ?></span>
+											<span class="text-danger"><?php echo $password_err; ?></span>
 										</div>
 										<!--end::Input group=-->
 
 											<!--begin::Input group=-->
-										<div class="fv-row mb-5">
+										<div class="fv-row mb-5 text-start">
 											<input class="form-control form-control-lg form-control-solid" type="password" placeholder="Confirmez le mot de pass" name="confirm_password" <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?> value="<?php echo $confirm_password; ?>">
-											<span class="invalid-feedback text-danger"><?php echo $confirm_password_err; ?></span>
+											<span class="text-danger"><?php echo $confirm_password_err; ?></span>
 										</div>
 										<!--end::Input group=-->
 										<!--begin::Actions-->

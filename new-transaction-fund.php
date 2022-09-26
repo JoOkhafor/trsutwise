@@ -39,7 +39,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	}
 
     if(empty(trim($_POST["card_expiry_year"]))){
-		$card_expiry_year_err = "Veuillez entrer un destinataire";
+		$card_expiry_year_err = "Veuillez remplir le champ";
 	} 
         else{
 		$card_expiry_year = trim($_POST["card_expiry_year"]);
@@ -131,12 +131,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 											<!--begin::Step 1-->
 											<div class="current" data-kt-stepper-element="content">
 												<!--begin::Wrapper-->
-												<?php echo $_SESSION['montant']; ?>
 												<div class="w-100">
 													<!--begin::Heading-->
 													<div class="pb-10 pb-lg-15">
 														<!--begin::Title-->
-														<h2 class="fw-bold d-flex align-items-center text-dark">Choisissez votre moyen de Payement</h2>
+														<h2 class="fw-bold d-flex align-items-center text-dark">Choisissez votre méthode de Payement</h2>
 														<!--end::Title-->
 														<!--begin::Notice-->
 														
@@ -148,10 +147,33 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 														
 														<!--begin::Row-->
 														<div class="row">
+															
 															<!--begin::Col-->
 															<div class="col-lg-6">
 																<!--begin::Option-->
-																<input type="radio" class="btn-check" name="account_type" value="personal" checked="checked" id="kt_create_account_form_account_type_personal" />
+																<input type="radio" class="btn-check" name="account_type" value="corporate" checked="checked" />
+																<label class="btn btn-outline btn-outline-dashed btn-active-light-primary p-7 d-flex align-items-center" for="kt_create_account_form_account_type_corporate">
+																	<!--begin::Svg Icon | path: icons/duotune/finance/fin006.svg-->
+																	<span class="svg-icon svg-icon-3x me-5">
+																	<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                                        <path d="M22 7H2V11H22V7Z" fill="currentColor" />
+                                                                                        <path opacity="0.3" d="M21 19H3C2.4 19 2 18.6 2 18V6C2 5.4 2.4 5 3 5H21C21.6 5 22 5.4 22 6V18C22 18.6 21.6 19 21 19ZM14 14C14 13.4 13.6 13 13 13H5C4.4 13 4 13.4 4 14C4 14.6 4.4 15 5 15H13C13.6 15 14 14.6 14 14ZM16 15.5C16 16.3 16.7 17 17.5 17H18.5C19.3 17 20 16.3 20 15.5C20 14.7 19.3 14 18.5 14H17.5C16.7 14 16 14.7 16 15.5Z" fill="currentColor" />
+                                                                                    </svg>
+																	</span>
+																	<!--end::Svg Icon-->
+																	<!--begin::Info-->
+																	<span class="d-block fw-semibold text-start">
+																		<span class="text-dark fw-bold d-block fs-4 mb-2">Carte bancaire</span>
+																	</span>
+																	<!--end::Info-->
+																</label>
+																<!--end::Option-->
+															</div>
+															<!--end::Col-->
+<!--begin::Col-->
+<div class="col-lg-6">
+																<!--begin::Option-->
+																<input type="radio" class="btn-check" name="account_type" value="mobile_money"  />
 																<label class="btn btn-outline btn-outline-dashed btn-active-light-primary p-7 d-flex align-items-center mb-10" for="kt_create_account_form_account_type_personal">
 																	<!--begin::Svg Icon | path: icons/duotune/communication/com005.svg-->
 																	<span class="svg-icon svg-icon-3x me-5">
@@ -171,29 +193,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 																<!--end::Option-->
 															</div>
 															<!--end::Col-->
-															<!--begin::Col-->
-															<div class="col-lg-6">
-																<!--begin::Option-->
-																<input type="radio" class="btn-check" name="account_type" value="corporate" id="kt_create_account_form_account_type_corporate" />
-																<label class="btn btn-outline btn-outline-dashed btn-active-light-primary p-7 d-flex align-items-center" for="kt_create_account_form_account_type_corporate">
-																	<!--begin::Svg Icon | path: icons/duotune/finance/fin006.svg-->
-																	<span class="svg-icon svg-icon-3x me-5">
-																	<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                                                        <path d="M22 7H2V11H22V7Z" fill="currentColor" />
-                                                                                        <path opacity="0.3" d="M21 19H3C2.4 19 2 18.6 2 18V6C2 5.4 2.4 5 3 5H21C21.6 5 22 5.4 22 6V18C22 18.6 21.6 19 21 19ZM14 14C14 13.4 13.6 13 13 13H5C4.4 13 4 13.4 4 14C4 14.6 4.4 15 5 15H13C13.6 15 14 14.6 14 14ZM16 15.5C16 16.3 16.7 17 17.5 17H18.5C19.3 17 20 16.3 20 15.5C20 14.7 19.3 14 18.5 14H17.5C16.7 14 16 14.7 16 15.5Z" fill="currentColor" />
-                                                                                    </svg>
-																	</span>
-																	<!--end::Svg Icon-->
-																	<!--begin::Info-->
-																	<span class="d-block fw-semibold text-start">
-																		<span class="text-dark fw-bold d-block fs-4 mb-2">Carte bancaire</span>
-																	</span>
-																	<!--end::Info-->
-																</label>
-																<!--end::Option-->
-															</div>
-															<!--end::Col-->
-
                                                             <div class="w-100 mt-10">
                                                                 <!--begin::Heading-->
                                                                 <div class="pb-5 pb-lg-10">
@@ -210,7 +209,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                                                                         <span class="required">Nom sur la carte</span>
                                                                     </label>
                                                                     <!--end::Label-->
-                                                                    <input type="text" class="form-control form-control-solid" placeholder="" name="card_name" value="Max Doe" />
+                                                                    <input type="text" class="form-control form-control-solid" name="card_name" value="" />
 																  <span class="text-danger"><?php echo $card_name_err; ?></span>
                                                                 </div>
                                                                 <!--end::Input group-->
@@ -222,7 +221,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                                                                     <!--begin::Input wrapper-->
                                                                     <div class="position-relative">
                                                                         <!--begin::Input-->
-                                                                        <input type="text" class="form-control form-control-solid" placeholder="Enter card number" name="card_number" value="4111 1111 1111 1111" />
+                                                                        <input type="text" class="form-control form-control-solid" name="card_number" value="" />
 																		<span class="text-danger"><?php echo $card_number_err; ?></span>
                                                                         <!--end::Input-->
                                                                         <!--begin::Card logos-->

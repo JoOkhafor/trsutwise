@@ -39,7 +39,7 @@
 										
 										<div class="card-title d-flex flex-column">
 										
-											<span class="fs-2hx fw-bold text-dark me-2 lh-1 ls-n2">357</span>
+											<span class="fs-2hx fw-bold text-dark me-2 lh-1 ls-n2">0</span>
 											
 											<span class="text-gray-400 pt-1 fw-semibold fs-6">Transactions au total</span>
 										
@@ -64,23 +64,7 @@
 												<span
 													class="symbol-label bg-primary text-inverse-primary fw-bold">S</span>
 											</div>
-											<div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip"
-												title="Melody Macy">
-												<img alt="Pic" src="assets/media/avatars/blank.png" />
-											</div>
-											<div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip"
-												title="Perry Matthew">
-												<span
-													class="symbol-label bg-danger text-inverse-danger fw-bold">P</span>
-											</div>
-											<div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip"
-												title="Barry Walter">
-												<img alt="Pic" src="assets/media/avatars/blank.png" />
-											</div>
-											<a href="#" class="symbol symbol-35px symbol-circle" data-bs-toggle="modal"
-												data-bs-target="#kt_modal_view_users">
-												<span class="symbol-label bg-dark text-gray-300 fs-8 fw-bold">+4</span>
-											</a>
+											
 										</div>
 									</div>
 								</div>
@@ -96,43 +80,38 @@
 										
 											<div class="d-flex align-items-center">
 												
-												<span class="fs-2hx fw-bold text-dark me-2 lh-1 ls-n2">69,700N  FCFA</span>
+												<span class="fs-2hx fw-bold text-dark me-2 lh-1 ls-n2">0 FCFA</span>
+											</div>
 											
-												
-											</div>
-											<div class="false-For-Bottom-Text">
-												<div class="mypiechart">	
-													<canvas id="myCanvas1" width="300" height="300"></canvas>
-												</div>
-											</div>
 											
 										</div>
 									</div>
 									<div class="card-body pt-2 pb-4 d-flex flex-wrap align-items-center">
+									<div class="donut mt-3">
+												<div class="hole"></div>
+											</div>
+										<div>
+										<div class="d-flex flex-column p-5 content-justify-center flex-row-fluid">
 										
-										<div class="d-flex flex-center me-5 pt-2">
+										<div class="d-flex fw-semibold align-items-center">
+											
+											<div class="bullet w-8px h-3px rounded-2 bg-success me-3"></div>
+										
+											<div class="text-gray-500 flex-grow-1 me-4">Entrant</div>
+										
+											<div class="fw-bolder text-gray-700 text-xxl-end">7,660 FCFA</div>
 										
 										</div>
-										<div class="d-flex flex-column content-justify-center flex-row-fluid">
+										<div class="d-flex fw-semibold align-items-center my-3">
+											
+											<div class="bullet w-8px h-3px rounded-2 bg-primary me-3"></div>
 										
-											<div class="d-flex fw-semibold align-items-center">
-												
-												<div class="bullet w-8px h-3px rounded-2 bg-success me-3"></div>
+											<div class="text-gray-500 flex-grow-1 me-4">Sortant</div>
 											
-												<div class="text-gray-500 flex-grow-1 me-4">Transaction entrant</div>
-											
-												<div class="fw-bolder text-gray-700 text-xxl-end">7,660 FCFA</div>
-											
-											</div>
-											<div class="d-flex fw-semibold align-items-center my-3">
-												
-												<div class="bullet w-8px h-3px rounded-2 bg-primary me-3"></div>
-											
-												<div class="text-gray-500 flex-grow-1 me-4">Transaction sortant</div>
-												
-												<div class="fw-bolder text-gray-700 text-xxl-end">2,820 FCFA</div>
-											</div>
-											
+											<div class="fw-bolder text-gray-700 text-xxl-end">2,820 FCFA</div>
+										</div>
+										
+									</div>
 										</div>
 									</div>
 								</div>
@@ -151,628 +130,132 @@
 								<div class="card-body pt-6">
 
 									<div class="card ">
+
 										<div class="card-header card-header-stretch">
 											<!--begin::Card title-->
-											<h3 class="card-title text-gray-800 fw-bold">Dernières transactions</h3>
-											<!--end::Card title-->
-											<div class="card-toolbar">
-												<ul class="nav nav-stretch nav-pills nav-pills-custom d-flex mt-4"
-													role="tablist">
-													<!--begin::Nav item-->
-
-													<!--end::Nav item-->
-													<!--begin::Nav item-->
-													<li class="nav-item p-0 ms-0" role="presentation">
-														<a class="nav-link btn btn-color-gray-400 flex-center px-3 active"
-															data-bs-toggle="tab" href="#outgoing_tab">
-															<!--begin::Title-->
-															<span class="nav-text fw-semibold fs-4 mb-3">Sortant</span>
-															<!--end::Title-->
-															<!--begin::Bullet-->
-															<span
-																class="bullet-custom position-absolute z-index-2 w-100 h-1px top-100 bottom-n100 bg-primary rounded"></span>
-															<!--end::Bullet-->
-														</a>
-													</li>
-													<!--end::Nav item-->
-													<!--begin::Nav item-->
-													<li class="nav-item p-0 ms-0" role="presentation">
-														<a class="nav-link btn btn-color-gray-400 flex-center px-3"
-															data-bs-toggle="tab" href="#incoming_tab">
-															<!--begin::Title-->
-															<span class="nav-text fw-semibold fs-4 mb-3">Entrant</span>
-															<!--end::Title-->
-															<!--begin::Bullet-->
-															<span
-																class="bullet-custom position-absolute z-index-2 w-100 h-1px top-100 bottom-n100 bg-primary rounded"></span>
-															<!--end::Bullet-->
-														</a>
-													</li>
-													<!--end::Nav item-->
-												</ul>
-											</div>
+											<h3 class="card-title text-gray-800 fw-bold">Liste de vos transactionss</h3>
 										</div>
+										
 										<div class="card-body">
 											<div class="tab-content" id="myTabContent">
 												<div class="tab-pane fade show active" id="outgoing_tab"
 													role="tabpanel">
-													<!--begin::Table container-->
-													<div class="table-responsive item--card mb-4">
-														<!--begin::Table-->
-														<table
-															class="table table-row-dashed table-row-gray-300 align-middle gs-0 gy-4">
+													<?php		$id = $_SESSION['id'];
+													$sql = "SELECT * FROM `transactions` WHERE id_emetteur=$id OR id_recepteur=$id AND transaction_status='pending' ORDER BY `transactions`.`transaction_date` ASC ";
+													if($result = $pdo->query($sql)){
+														if($result->rowCount() > 0){
+																while($row = $result->fetch())
+																
+																{
 
-															<!--begin::Table body-->
-															<tbody>
-																<tr>
+																	$sender = "SELECT * FROM `users_register` WHERE user_id= :id " ;
+																			if($stmt = $pdo->prepare($sender)){
+																				// Bind variables to the prepared statement as parameters
+																				$stmt->bindParam(":id", $param_id);
+																				
+																				// Set parameters
+																				$param_id = trim($row['id_recepteur']);
+																				
+																				// Attempt to execute the prepared statement
+																				if($stmt->execute()){
+																					if($stmt->rowCount() > 0){
+																						/* Fetch result row as an associative array. Since the result set
+																						contains only one row, we don't need to use while loop */
+																						$recepteur_row = $stmt->fetch(PDO::FETCH_ASSOC);
+																						
+																						// Retrieve individual field value
+																						$nom_recepteur = $recepteur_row["user_name"];
+																						$profile_recepteur = $recepteur_row["profile_pic"];
+																					} 
+																					
+																				} else{
+																					echo "Oops! Something went wrong. Please try again later.";
+																				}
+																			}
+																			// Close statement
+																			unset($sender);
+																			
 
-																	<td>
-																		<div class="d-flex align-items-center">
-																			<div class="symbol symbol-45px me-5">
-																				<img src="assets/media/avatars/blank.png"
-																					alt="" />
-																			</div>
-																			<div
-																				class="d-flex justify-content-start flex-column">
-																				<span
-																					class="text-dark fw-bold text-hover-primary fs-6">John
-																					Doe</span>
-																				<span
-																					class="text-muted fw-semibold text-muted d-block fs-7">johndoe@gmail.com</span>
-																			</div>
-																		</div>
-																	</td>
-																	<td>
-																		<p href="#"
-																			class="text-dark fw-bold text-hover-primary d-block fs-6">
-																			54000 FCFA</p>
-																	</td>
-																	<td>
-																		<p href="#"
-																			class="text-dark fw-bold text-hover-primary d-block fs-6">
-																			12/09/2022</p>
-																	</td>
-																	<td class="text-end">
-																		<!--begin::Label-->
-																		<span
-																			class="badge badge-light-success fs-base">En attente</span>
-																	</td>
-																	<td>
-																		<div
-																			class="d-flex justify-content-end flex-shrink-0">
-																			<a href="#"
-																				class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1" data-bs-toggle="modal"
-																				data-bs-target="#warning-modal">
-																				<!--begin::Svg Icon | path: icons/duotune/general/gen019.svg-->
-																				<span class="svg-icon svg-icon-3">
-																					<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-																						<path d="M9.89557 13.4982L7.79487 11.2651C7.26967 10.7068 6.38251 10.7068 5.85731 11.2651C5.37559 11.7772 5.37559 12.5757 5.85731 13.0878L9.74989 17.2257C10.1448 17.6455 10.8118 17.6455 11.2066 17.2257L18.1427 9.85252C18.6244 9.34044 18.6244 8.54191 18.1427 8.02984C17.6175 7.47154 16.7303 7.47154 16.2051 8.02984L11.061 13.4982C10.7451 13.834 10.2115 13.834 9.89557 13.4982Z" fill="currentColor"/>
-																					</svg>															
-																				</span>
-																				<!--end::Svg Icon-->
-																			</a>
-																			<a href="#"
-																				class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1" data-bs-toggle="modal"
-																				data-bs-target="#danger-modal">
-																				<!--begin::Svg Icon | path: icons/duotune/art/art005.svg-->
-																				<span class="svg-icon svg-icon-3">
-																				<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-																					<rect opacity="0.3" x="2" y="2" width="20" height="20" rx="5" fill="currentColor"/>
-																					<rect x="7" y="15.3137" width="12" height="2" rx="1" transform="rotate(-45 7 15.3137)" fill="currentColor"/>
-																					<rect x="8.41422" y="7" width="12" height="2" rx="1" transform="rotate(45 8.41422 7)" fill="currentColor"/>
-																					</svg>
-																				</span>
-																				<!--end::Svg Icon-->
-																			</a>
+																	echo ' <div class="table-responsive item--card mb-4">
+																				<!--begin::Table-->
+																				<table
+																					class="table table-row-dashed table-row-gray-300 align-middle gs-0 gy-4">
 
-																		</div>
-																	</td>
-																</tr>
+																					<!--begin::Table body-->
+																					<tbody>
+																						<tr>
 
-															</tbody>
-															<!--end::Table body-->
-														</table>
-														<!--end::Table-->
-													</div>
-													<!--end::Table-->
+																							<td>
+																								<div class="d-flex align-items-center">
+																									<div class="symbol symbol-45px me-5">
+																										<img src="assets/media/profile/'.$profile_recepteur.'"alt="" />
+																									</div>
+																										<div class="d-flex justify-content-start flex-column">
+																											<span class="text-dark fw-bold text-hover-primary fs-6">'.$nom_recepteur.'
+																										</span>
+																									</div>
+																								</div>
+																							</td>
+																							<td>
+																								<p href="#"
+																									class="text-dark fw-bold text-hover-primary d-block fs-6"> '.$row['montant'].'  </p>
+																							</td>
+																							<td>
+																								<p href="#"
+																									class="text-dark fw-bold text-hover-primary d-block fs-6">
+																									'.$row['transaction_date'].' </p>
+																							</td>
+																							<td class="text-end">
+																								<!--begin::Label-->
+																								<span
+																									class="badge badge-light-success fs-base">En attente</span>
+																							</td>
+																							<td>
+																								<div
+																									class="d-flex justify-content-end flex-shrink-0">
+																									<a href="transaction-details.php?tr_id='.$row['id_transaction'].'"
+																										class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1">
+																										<!--begin::Svg Icon | path: icons/duotune/general/gen019.svg-->
+																										<span class="svg-icon svg-icon-3">
+																											<svg width="24" height="24"
+																												viewBox="0 0 24 24" fill="none"
+																												xmlns="http://www.w3.org/2000/svg">
+																												<rect opacity="0.3" x="2" y="2"
+																													width="20" height="20"
+																													rx="5"
+																													fill="currentColor" />
+																												<path
+																													d="M10.4343 12.4343L8.75 10.75C8.33579 10.3358 7.66421 10.3358 7.25 10.75C6.83579 11.1642 6.83579 11.8358 7.25 12.25L10.2929 15.2929C10.6834 15.6834 11.3166 15.6834 11.7071 15.2929L17.25 9.75C17.6642 9.33579 17.6642 8.66421 17.25 8.25C16.8358 7.83579 16.1642 7.83579 15.75 8.25L11.5657 12.4343C11.2533 12.7467 10.7467 12.7467 10.4343 12.4343Z"
+																													fill="currentColor" />
+																											</svg>
+																										</span>
+																										<!--end::Svg Icon-->
+																									</a>
+																									
 
-													<div class="table-responsive item--card mb-4">
-														<!--begin::Table-->
-														<table
-															class="table table-row-dashed table-row-gray-300 align-middle gs-0 gy-4">
+																								</div>
+																							</td>
+																						</tr>
 
-															<!--begin::Table body-->
-															<tbody>
-																<tr>
-
-																	<td>
-																		<div class="d-flex align-items-center">
-																			<div class="symbol symbol-45px me-5">
-																				<img src="assets/media/avatars/blank.png"
-																					alt="" />
-																			</div>
-																			<div
-																				class="d-flex justify-content-start flex-column">
-																				<span
-																					class="text-dark fw-bold text-hover-primary fs-6">John
-																					Doe</span>
-																				<span
-																					class="text-muted fw-semibold text-muted d-block fs-7">johndoe@gmail.com</span>
-																			</div>
-																		</div>
-																	</td>
-																	<td>
-																		<p href="#"
-																			class="text-dark fw-bold text-hover-primary d-block fs-6">
-																			54000 FCFA</p>
-																	</td>
-																	<td>
-																		<p href="#"
-																			class="text-dark fw-bold text-hover-primary d-block fs-6">
-																			12/09/2022</p>
-																	</td>
-																	<td class="text-end">
-																		<!--begin::Label-->
-																		<span
-																			class="badge badge-light-success fs-base">En
-																			cours</span>
-																	</td>
-																	<td>
-																		<div
-																			class="d-flex justify-content-end flex-shrink-0">
-																			<a href="#"
-																				class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1" data-bs-toggle="modal"
-																				data-bs-target="#warning-modal">
-																				<!--begin::Svg Icon | path: icons/duotune/general/gen019.svg-->
-																				<span class="svg-icon svg-icon-3">
-																					<svg width="24" height="24"
-																						viewBox="0 0 24 24" fill="none"
-																						xmlns="http://www.w3.org/2000/svg">
-																						<rect opacity="0.3" x="2" y="2"
-																							width="20" height="20"
-																							rx="5"
-																							fill="currentColor" />
-																						<path
-																							d="M10.4343 12.4343L8.75 10.75C8.33579 10.3358 7.66421 10.3358 7.25 10.75C6.83579 11.1642 6.83579 11.8358 7.25 12.25L10.2929 15.2929C10.6834 15.6834 11.3166 15.6834 11.7071 15.2929L17.25 9.75C17.6642 9.33579 17.6642 8.66421 17.25 8.25C16.8358 7.83579 16.1642 7.83579 15.75 8.25L11.5657 12.4343C11.2533 12.7467 10.7467 12.7467 10.4343 12.4343Z"
-																							fill="currentColor" />
-																					</svg>
-																				</span>
-																				<!--end::Svg Icon-->
-																			</a>
-																			<a href="#"
-																				class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1" data-bs-toggle="modal"
-																				data-bs-target="#danger-modal">
-																				<!--begin::Svg Icon | path: icons/duotune/art/art005.svg-->
-																				<span class="svg-icon svg-icon-3">
-																					<svg width="24" height="24"
-																						viewBox="0 0 24 24" fill="none"
-																						xmlns="http://www.w3.org/2000/svg">
-																						<rect opacity="0.3" x="2" y="2"
-																							width="20" height="20"
-																							rx="10"
-																							fill="currentColor" />
-																						<rect x="11" y="14" width="7"
-																							height="2" rx="1"
-																							transform="rotate(-90 11 14)"
-																							fill="currentColor" />
-																						<rect x="11" y="17" width="2"
-																							height="2" rx="1"
-																							transform="rotate(-90 11 17)"
-																							fill="currentColor" />
-																					</svg>
-																				</span>
-																				<!--end::Svg Icon-->
-																			</a>
-
-																		</div>
-																	</td>
-																</tr>
-
-															</tbody>
-															<!--end::Table body-->
-														</table>
-														<!--end::Table-->
-													</div>
-													<!--end::Table-->
-
-													<div class="table-responsive item--card mb-4">
-														<!--begin::Table-->
-														<table
-															class="table table-row-dashed table-row-gray-300 align-middle gs-0 gy-4">
-
-															<!--begin::Table body-->
-															<tbody>
-																<tr>
-
-																	<td>
-																		<div class="d-flex align-items-center">
-																			<div class="symbol symbol-45px me-5">
-																				<img src="assets/media/avatars/blank.png"
-																					alt="" />
-																			</div>
-																			<div
-																				class="d-flex justify-content-start flex-column">
-																				<span
-																					class="text-dark fw-bold text-hover-primary fs-6">John
-																					Doe</span>
-																				<span
-																					class="text-muted fw-semibold text-muted d-block fs-7">johndoe@gmail.com</span>
-																			</div>
-																		</div>
-																	</td>
-																	<td>
-																		<p href="#"
-																			class="text-dark fw-bold text-hover-primary d-block fs-6">
-																			54000 FCFA</p>
-																	</td>
-																	<td>
-																		<p href="#"
-																			class="text-dark fw-bold text-hover-primary d-block fs-6">
-																			12/09/2022</p>
-																	</td>
-																	<td class="text-end">
-																		<!--begin::Label-->
-																		<span
-																			class="badge badge-light-success fs-base">En
-																			cours</span>
-																	</td>
-																	<td>
-																		<div
-																			class="d-flex justify-content-end flex-shrink-0">
-																			<a href="#"
-																				class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1" data-bs-toggle="modal"
-																				data-bs-target="#warning-modal">
-																				<!--begin::Svg Icon | path: icons/duotune/general/gen019.svg-->
-																				<span class="svg-icon svg-icon-3">
-																					<svg width="24" height="24"
-																						viewBox="0 0 24 24" fill="none"
-																						xmlns="http://www.w3.org/2000/svg">
-																						<rect opacity="0.3" x="2" y="2"
-																							width="20" height="20"
-																							rx="5"
-																							fill="currentColor" />
-																						<path
-																							d="M10.4343 12.4343L8.75 10.75C8.33579 10.3358 7.66421 10.3358 7.25 10.75C6.83579 11.1642 6.83579 11.8358 7.25 12.25L10.2929 15.2929C10.6834 15.6834 11.3166 15.6834 11.7071 15.2929L17.25 9.75C17.6642 9.33579 17.6642 8.66421 17.25 8.25C16.8358 7.83579 16.1642 7.83579 15.75 8.25L11.5657 12.4343C11.2533 12.7467 10.7467 12.7467 10.4343 12.4343Z"
-																							fill="currentColor" />
-																					</svg>
-																				</span>
-																				<!--end::Svg Icon-->
-																			</a>
-																			<a href="#"
-																				class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1" data-bs-toggle="modal"
-																				data-bs-target="#danger-modal">
-																				<!--begin::Svg Icon | path: icons/duotune/art/art005.svg-->
-																				<span class="svg-icon svg-icon-3">
-																					<svg width="24" height="24"
-																						viewBox="0 0 24 24" fill="none"
-																						xmlns="http://www.w3.org/2000/svg">
-																						<rect opacity="0.3" x="2" y="2"
-																							width="20" height="20"
-																							rx="10"
-																							fill="currentColor" />
-																						<rect x="11" y="14" width="7"
-																							height="2" rx="1"
-																							transform="rotate(-90 11 14)"
-																							fill="currentColor" />
-																						<rect x="11" y="17" width="2"
-																							height="2" rx="1"
-																							transform="rotate(-90 11 17)"
-																							fill="currentColor" />
-																					</svg>
-																				</span>
-																				<!--end::Svg Icon-->
-																			</a>
-
-																		</div>
-																	</td>
-																</tr>
-
-															</tbody>
-															<!--end::Table body-->
-														</table>
-														<!--end::Table-->
-													</div>
-													<!--end::Table-->
-												</div>
-
-												<div class="tab-pane fade" id="incoming_tab" role="tabpanel">
-													<div class="table-responsive item--card mb-4">
-														<!--begin::Table-->
-														<table
-															class="table table-row-dashed table-row-gray-300 align-middle gs-0 gy-4">
-
-															<!--begin::Table body-->
-															<tbody>
-																<tr>
-
-																	<td>
-																		<div class="d-flex align-items-center">
-																			<div class="symbol symbol-45px me-5">
-																				<img src="assets/media/avatars/blank.png"
-																					alt="" />
-																			</div>
-																			<div
-																				class="d-flex justify-content-start flex-column">
-																				<span
-																					class="text-dark fw-bold text-hover-primary fs-6">John
-																					Doe</span>
-																				<span
-																					class="text-muted fw-semibold text-muted d-block fs-7">johndoe@gmail.com</span>
-																			</div>
-																		</div>
-																	</td>
-																	<td>
-																		<p href="#"
-																			class="text-dark fw-bold text-hover-primary d-block fs-6">
-																			54000 FCFA</p>
-																	</td>
-																	<td>
-																		<p href="#"
-																			class="text-dark fw-bold text-hover-primary d-block fs-6">
-																			12/09/2022</p>
-																	</td>
-																	<td class="text-end">
-																		<!--begin::Label-->
-																		<span
-																			class="badge badge-light-success fs-base">En attente</span>
-																	</td>
-																	<td>
-																		<div
-																			class="d-flex justify-content-end flex-shrink-0">
-																			<a href="#"
-																				class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1" data-bs-toggle="modal"
-																				data-bs-target="#warning-modal">
-																				<!--begin::Svg Icon | path: icons/duotune/general/gen019.svg-->
-																				<span class="svg-icon svg-icon-3">
-																					<svg width="24" height="24"
-																						viewBox="0 0 24 24" fill="none"
-																						xmlns="http://www.w3.org/2000/svg">
-																						<rect opacity="0.3" x="2" y="2"
-																							width="20" height="20"
-																							rx="5"
-																							fill="currentColor" />
-																						<path
-																							d="M10.4343 12.4343L8.75 10.75C8.33579 10.3358 7.66421 10.3358 7.25 10.75C6.83579 11.1642 6.83579 11.8358 7.25 12.25L10.2929 15.2929C10.6834 15.6834 11.3166 15.6834 11.7071 15.2929L17.25 9.75C17.6642 9.33579 17.6642 8.66421 17.25 8.25C16.8358 7.83579 16.1642 7.83579 15.75 8.25L11.5657 12.4343C11.2533 12.7467 10.7467 12.7467 10.4343 12.4343Z"
-																							fill="currentColor" />
-																					</svg>
-																				</span>
-																				<!--end::Svg Icon-->
-																			</a>
-																			<a href="#"
-																				class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1" data-bs-toggle="modal"
-																				data-bs-target="#danger-modal">
-																				<!--begin::Svg Icon | path: icons/duotune/art/art005.svg-->
-																				<span class="svg-icon svg-icon-3">
-																					<svg width="24" height="24"
-																						viewBox="0 0 24 24" fill="none"
-																						xmlns="http://www.w3.org/2000/svg">
-																						<rect opacity="0.3" x="2" y="2"
-																							width="20" height="20"
-																							rx="10"
-																							fill="currentColor" />
-																						<rect x="11" y="14" width="7"
-																							height="2" rx="1"
-																							transform="rotate(-90 11 14)"
-																							fill="currentColor" />
-																						<rect x="11" y="17" width="2"
-																							height="2" rx="1"
-																							transform="rotate(-90 11 17)"
-																							fill="currentColor" />
-																					</svg>
-																				</span>
-																				<!--end::Svg Icon-->
-																			</a>
-
-																		</div>
-																	</td>
-																</tr>
-
-															</tbody>
-															<!--end::Table body-->
-														</table>
-														<!--end::Table-->
-													</div>
-													<!--end::Table-->
-
-													<div class="table-responsive item--card mb-4">
-														<!--begin::Table-->
-														<table
-															class="table table-row-dashed table-row-gray-300 align-middle gs-0 gy-4">
-
-															<!--begin::Table body-->
-															<tbody>
-																<tr>
-
-																	<td>
-																		<div class="d-flex align-items-center">
-																			<div class="symbol symbol-45px me-5">
-																				<img src="assets/media/avatars/blank.png"
-																					alt="" />
-																			</div>
-																			<div
-																				class="d-flex justify-content-start flex-column">
-																				<span
-																					class="text-dark fw-bold text-hover-primary fs-6">John
-																					Doe</span>
-																				<span
-																					class="text-muted fw-semibold text-muted d-block fs-7">johndoe@gmail.com</span>
-																			</div>
-																		</div>
-																	</td>
-																	<td>
-																		<p href="#"
-																			class="text-dark fw-bold text-hover-primary d-block fs-6">
-																			54000 FCFA</p>
-																	</td>
-																	<td>
-																		<p href="#"
-																			class="text-dark fw-bold text-hover-primary d-block fs-6">
-																			12/09/2022</p>
-																	</td>
-																	<td class="text-end">
-																		<!--begin::Label-->
-																		<span
-																			class="badge badge-light-success fs-base">En
-																			cours</span>
-																	</td>
-																	<td>
-																		<div
-																			class="d-flex justify-content-end flex-shrink-0">
-																			<a href="#"
-																				class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1" data-bs-toggle="modal"
-																				data-bs-target="#warning-modal">
-																				<!--begin::Svg Icon | path: icons/duotune/general/gen019.svg-->
-																				<span class="svg-icon svg-icon-3">
-																					<svg width="24" height="24"
-																						viewBox="0 0 24 24" fill="none"
-																						xmlns="http://www.w3.org/2000/svg">
-																						<rect opacity="0.3" x="2" y="2"
-																							width="20" height="20"
-																							rx="5"
-																							fill="currentColor" />
-																						<path
-																							d="M10.4343 12.4343L8.75 10.75C8.33579 10.3358 7.66421 10.3358 7.25 10.75C6.83579 11.1642 6.83579 11.8358 7.25 12.25L10.2929 15.2929C10.6834 15.6834 11.3166 15.6834 11.7071 15.2929L17.25 9.75C17.6642 9.33579 17.6642 8.66421 17.25 8.25C16.8358 7.83579 16.1642 7.83579 15.75 8.25L11.5657 12.4343C11.2533 12.7467 10.7467 12.7467 10.4343 12.4343Z"
-																							fill="currentColor" />
-																					</svg>
-																				</span>
-																				<!--end::Svg Icon-->
-																			</a>
-																			<a href="#"
-																				class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1" data-bs-toggle="modal"
-																				data-bs-target="#danger-modal">
-																				<!--begin::Svg Icon | path: icons/duotune/art/art005.svg-->
-																				<span class="svg-icon svg-icon-3">
-																					<svg width="24" height="24"
-																						viewBox="0 0 24 24" fill="none"
-																						xmlns="http://www.w3.org/2000/svg">
-																						<rect opacity="0.3" x="2" y="2"
-																							width="20" height="20"
-																							rx="10"
-																							fill="currentColor" />
-																						<rect x="11" y="14" width="7"
-																							height="2" rx="1"
-																							transform="rotate(-90 11 14)"
-																							fill="currentColor" />
-																						<rect x="11" y="17" width="2"
-																							height="2" rx="1"
-																							transform="rotate(-90 11 17)"
-																							fill="currentColor" />
-																					</svg>
-																				</span>
-																				<!--end::Svg Icon-->
-																			</a>
-
-																		</div>
-																	</td>
-																</tr>
-
-															</tbody>
-															<!--end::Table body-->
-														</table>
-														<!--end::Table-->
-													</div>
-													<!--end::Table-->
-
-													<div class="table-responsive item--card mb-4">
-														<!--begin::Table-->
-														<table
-															class="table table-row-dashed table-row-gray-300 align-middle gs-0 gy-4">
-
-															<!--begin::Table body-->
-															<tbody>
-																<tr>
-
-																	<td>
-																		<div class="d-flex align-items-center">
-																			<div class="symbol symbol-45px me-5">
-																				<img src="assets/media/avatars/blank.png"
-																					alt="" />
-																			</div>
-																			<div
-																				class="d-flex justify-content-start flex-column">
-																				<span
-																					class="text-dark fw-bold text-hover-primary fs-6">John
-																					Doe</span>
-																				<span
-																					class="text-muted fw-semibold text-muted d-block fs-7">johndoe@gmail.com</span>
-																			</div>
-																		</div>
-																	</td>
-																	<td>
-																		<p href="#"
-																			class="text-dark fw-bold text-hover-primary d-block fs-6">
-																			54000 FCFA</p>
-																	</td>
-																	<td>
-																		<p href="#"
-																			class="text-dark fw-bold text-hover-primary d-block fs-6">
-																			12/09/2022</p>
-																	</td>
-																	<td class="text-end">
-																		<!--begin::Label-->
-																		<span
-																			class="badge badge-light-success fs-base">En
-																			cours</span>
-																	</td>
-																	<td>
-																		<div
-																			class="d-flex justify-content-end flex-shrink-0">
-																			<a href="#"
-																				class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1" data-bs-toggle="modal"
-																				data-bs-target="#warning-modal">
-																				<!--begin::Svg Icon | path: icons/duotune/general/gen019.svg-->
-																				<span class="svg-icon svg-icon-3">
-																					<svg width="24" height="24"
-																						viewBox="0 0 24 24" fill="none"
-																						xmlns="http://www.w3.org/2000/svg">
-																						<rect opacity="0.3" x="2" y="2"
-																							width="20" height="20"
-																							rx="5"
-																							fill="currentColor" />
-																						<path
-																							d="M10.4343 12.4343L8.75 10.75C8.33579 10.3358 7.66421 10.3358 7.25 10.75C6.83579 11.1642 6.83579 11.8358 7.25 12.25L10.2929 15.2929C10.6834 15.6834 11.3166 15.6834 11.7071 15.2929L17.25 9.75C17.6642 9.33579 17.6642 8.66421 17.25 8.25C16.8358 7.83579 16.1642 7.83579 15.75 8.25L11.5657 12.4343C11.2533 12.7467 10.7467 12.7467 10.4343 12.4343Z"
-																							fill="currentColor" />
-																					</svg>
-																				</span>
-																				<!--end::Svg Icon-->
-																			</a>
-																			<a href="#"
-																				class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1" data-bs-toggle="modal"
-																				data-bs-target="#danger-modal">
-																				<!--begin::Svg Icon | path: icons/duotune/art/art005.svg-->
-																				<span class="svg-icon svg-icon-3">
-																					<svg width="24" height="24"
-																						viewBox="0 0 24 24" fill="none"
-																						xmlns="http://www.w3.org/2000/svg">
-																						<rect opacity="0.3" x="2" y="2"
-																							width="20" height="20"
-																							rx="10"
-																							fill="currentColor" />
-																						<rect x="11" y="14" width="7"
-																							height="2" rx="1"
-																							transform="rotate(-90 11 14)"
-																							fill="currentColor" />
-																						<rect x="11" y="17" width="2"
-																							height="2" rx="1"
-																							transform="rotate(-90 11 17)"
-																							fill="currentColor" />
-																					</svg>
-																				</span>
-																				<!--end::Svg Icon-->
-																			</a>
-
-																		</div>
-																	</td>
-																</tr>
-
-															</tbody>
-															<!--end::Table body-->
-														</table>
-														<!--end::Table-->
-													</div>
-													<!--end::Table-->
-												</div>
+																					</tbody>
+																					<!--end::Table body-->
+																				</table>
+																				<!--end::Table-->
+																		</div>';
+																}
+															unset($result);
+														} else{
+															echo '<div class="alert alert-warning"><em>Vous n\'avez aucune transaction .</em></div>';
+														}
+													} else{
+														echo "Oops! Something went wrong. Please try again later.";
+													}
+													
+													// Close connection
+													unset($pdo);
+													?>
 											</div>
+
 										</div>
 									</div>
 
@@ -804,170 +287,7 @@
 			</span>
 		</div>
 		<?php include 'page_components/scripts.php' ?>
-		<script type="text/javascript">
 		
-		var obj = {
-						values: [15, 50, 20, 85, 30],
-						colors: ['#4CAF50', '#00BCD4', '#E91E63', '#FFC107', '#9E9E9E'],
-						animation: true, // Takes boolean value & default behavious is false
-						animationSpeed: 50, // Time in miliisecond & default animation speed is 20ms
-						fillTextData: true, // Takes boolean value & text is not generate by default 
-						fillTextColor: '#fff', // For Text colour & default colour is #fff (White)
-						fillTextAlign: 1.30, // for alignment of inner text position i.e. higher values gives closer view to center & default text alignment is 1.85 i.e closer to center
-						fillTextPosition: 'inner', // 'horizontal' or 'vertical' or 'inner' & default text position is 'horizontal' position i.e. outside the canvas
-						doughnutHoleSize: 50, // Percentage of doughnut size within the canvas & default doughnut size is null
-						doughnutHoleColor: '#fff', // For doughnut colour & default colour is #fff (White)
-						offset: 1, // Offeset between two segments & default value is null
-						pie: 'normal', // if the pie graph is single stroke then we will add the object key as "stroke" & default is normal as simple as pie graph
-						isStrokePie: { 
-							stroke: 20, // Define the stroke of pie graph. It takes number value & default value is 20
-							overlayStroke: true, // Define the background stroke within pie graph. It takes boolean value & default value is false
-							overlayStrokeColor: '#eee', // Define the background stroke colour within pie graph & default value is #eee (Grey)
-							strokeStartEndPoints: 'Yes', // Define the start and end point of pie graph & default value is No
-							strokeAnimation: true, // Used for animation. It takes boolean value & default value is true
-							strokeAnimationSpeed: 40, // Used for animation speed in miliisecond. It takes number & default value is 20ms
-							fontSize: '60px', // Used to define text font size & default value is 60px
-							textAlignement: 'center', // Used for position of text within the pie graph & default value is 'center'
-							fontFamily: 'Arial', // Define the text font family & the default value is 'Arial'
-							fontWeight: 'bold' //  Define the font weight of the text & the default value is 'bold'
-						}
-					  };
-		
-		var obj1 = {
-						values: [15, 50, 20, 85, 30],
-						colors: ['#4CAF50', '#00BCD4', '#E91E63', '#FFC107', '#9E9E9E'],
-						animation: false,
-						fillTextData: true,
-						fillTextColor: '#fff',
-						fillTextAlign: 1.3, 
-						fillTextPosition: 'inner',
-						doughnutHoleSize: 60,
-						doughnutHoleColor: '#fff',
-						offset: 1
-					  };
-		
-		var obj2 = {
-						values: [15, 50, 20, 85, 30],
-						colors: ['#4CAF50', '#00BCD4', '#E91E63', '#FFC107', '#9E9E9E'],
-						animation: true,
-						animationSpeed: 30,
-						fillTextData: true,
-						fillTextColor: '#fff',
-						fillTextAlign: 1.50, 
-						fillTextPosition: 'inner',
-						doughnutHoleSize: null,
-						doughnutHoleColor: '#fff',
-						offset: 1
-					  };
-		
-		var obj3 = {
-						values: [15, 50, 20, 85, 30],
-						colors: ['#4CAF50', '#00BCD4', '#E91E63', '#FFC107', '#9E9E9E'],
-						animation: true,
-						fillTextData: true,
-						fillTextColor: '#fff',
-						fillTextPosition: 'horizontal',
-						doughnutHoleSize: null,
-						doughnutHoleColor: '#fff',
-						offset: null
-					  };
-		
-		var obj4 = {
-						values: [15, 50, 20, 85, 30],
-						colors: ['#4CAF50', '#00BCD4', '#E91E63', '#FFC107', '#9E9E9E'],
-						animation: true,
-						fillTextData: true,
-						fillTextColor: '#fff',
-						fillTextPosition: 'vertical',
-						doughnutHoleSize: null,
-						doughnutHoleColor: '#000',
-						offset: null
-					  };
-		
-		var obj5 = {
-						values: [15, 50, 20, 85, 30],
-						colors: ['#4CAF50', '#00BCD4', '#E91E63', '#FFC107', '#9E9E9E'],
-						animation: true,
-						doughnutHoleSize: 80,
-						doughnutHoleColor: '#fff',
-						offset: 5
-					  };
-		
-		var obj6 = {
-						pie: 'stroke',
-						values: [85],
-						colors: ['#4CAF50'],
-						isStrokePie: {
-							stroke: 20,
-							strokeStartEndPoints: 'Yes',
-							strokeAnimation: true,
-							strokeAnimationSpeed: 30,
-							fontSize: '40px',
-							textAlignement: 'center',
-							fontFamily: 'Arial',
-							fontWeight: 'bold'
-						}
-					  };
-		
-		var obj7 = {
-						pie: 'stroke',
-						values: [65],
-						colors: ['#00BCD4'],
-						isStrokePie: {
-							stroke: 20,
-							strokeStartEndPoints: 'Yes',
-							strokeAnimation: false,
-							strokeAnimationSpeed: 20,
-							fontSize: '60px',
-							textAlignement: 'center',
-							fontFamily: 'Arial',
-							fontWeight: 'bold'
-						}
-					  };
-		
-		var obj8 = {
-						pie: 'stroke',
-						values: [75],
-						colors: ['#E91E63'],
-						isStrokePie: {
-							stroke: 20,
-							overlayStroke: true,
-							overlayStrokeColor: '#eee',
-							strokeStartEndPoints: 'Yes',
-							strokeAnimation: true,
-							strokeAnimationSpeed: 40,
-							fontSize: '60px',
-							textAlignement: 'center',
-							fontFamily: 'Arial',
-							fontWeight: 'bold'
-						}
-					  };
-		
-		var obj9 = {
-						pie: 'stroke',
-						values: [80],
-						colors: ['#FFC107'],
-						isStrokePie: {
-							stroke: 20,
-							overlayStroke: true,
-							overlayStrokeColor: '#eee',
-							strokeStartEndPoints: 'No',
-							strokeAnimation: false,
-							strokeAnimationSpeed: 20,
-							fontSize: '60px',
-							textAlignement: 'center',
-							fontFamily: 'Arial',
-							fontWeight: 'bold'
-						}
-					  };
-		
-		//Generate myCanvas		
-		generatePieGraph('myCanvas', obj);
-		
-		
-		
-	</script>
-
 </body>
 
 </html>

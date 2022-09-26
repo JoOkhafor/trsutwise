@@ -51,427 +51,134 @@ require_once "core/config.php";
 							<!--begin::Timeline Widget 4-->
 							<div class="card h-md-100">
 								<!--end::Card header-->
-								<div class="card-body pt-6">
+								<div class="card-body">
 
-									<div class="card ">
+								<div class="card ">
 										<div class="card-header card-header-stretch">
 											<!--begin::Card title-->
 											<h3 class="card-title text-gray-800 fw-bold">Liste de vos transactionss</h3>
-											<!--end::Card title-->
-											<div class="card-toolbar">
-												<ul class="nav nav-stretch nav-pills nav-pills-custom d-flex mt-4"
-													role="tablist">
-													<!--begin::Nav item-->
-
-													<!--end::Nav item-->
-													<!--begin::Nav item-->
-													<li class="nav-item p-0 ms-0" role="presentation">
-														<a class="nav-link btn btn-color-gray-400 flex-center px-3 active"
-															data-bs-toggle="tab" href="#outgoing_tab">
-															<!--begin::Title-->
-															<span class="nav-text fw-semibold fs-4 mb-3">Sortant</span>
-															<!--end::Title-->
-															<!--begin::Bullet-->
-															<span
-																class="bullet-custom position-absolute z-index-2 w-100 h-1px top-100 bottom-n100 bg-primary rounded"></span>
-															<!--end::Bullet-->
-														</a>
-													</li>
-													<!--end::Nav item-->
-													<!--begin::Nav item-->
-													<li class="nav-item p-0 ms-0" role="presentation">
-														<a class="nav-link btn btn-color-gray-400 flex-center px-3"
-															data-bs-toggle="tab" href="#incoming_tab">
-															<!--begin::Title-->
-															<span class="nav-text fw-semibold fs-4 mb-3">Entrant</span>
-															<!--end::Title-->
-															<!--begin::Bullet-->
-															<span
-																class="bullet-custom position-absolute z-index-2 w-100 h-1px top-100 bottom-n100 bg-primary rounded"></span>
-															<!--end::Bullet-->
-														</a>
-													</li>
-													<!--end::Nav item-->
-												</ul>
-											</div>
 										</div>
-										<div class="card-body">
+								</div>
 											<div class="tab-content" id="myTabContent">
 												<div class="tab-pane fade show active" id="outgoing_tab"
 													role="tabpanel">
+													<?php		$id = $_SESSION['id'];
+													$sql = "SELECT * FROM `transactions` WHERE id_emetteur=$id ORDER BY `transactions`.`transaction_date` DESC ";
+													if($result = $pdo->query($sql)){
+														if($result->rowCount() > 0){
+																while($row = $result->fetch())
+																
+																{
 
-													<?php $sql = "SELECT * FROM `transactions` WHERE transaction_status='pending' ORDER BY `transaction_date` DESC LIMIT 10 " ; ?>
-													<?php if($result = $pdo->query($sql)):?>
-														<?php	if($result->rowCount() > 0): ?>
-															
-															<?php while($row = $result->fetch()): ?>
-																<?php if($row['id_emetteur'] === $_SESSION['id']): ?>
-
-																<div class="table-responsive item--card mb-4">
-																		<!--begin::Table-->
-																		<table
-																			class="table table-row-dashed table-row-gray-300 align-middle gs-0 gy-4">
-
-																			<!--begin::Table body-->
-																			<tbody>
-																				<tr>
-
-																					<td>
-																						<div class="d-flex align-items-center">
-																							<div class="symbol symbol-45px me-5">
-																								<img src="assets/media/avatars/blank.png"
-																									alt="" />
-																							</div>
-																								<div class="d-flex justify-content-start flex-column">
-																								<span class="text-muted fw-semibold text-muted d-block fs-7">Par:</span>
-																									<span class="text-dark fw-bold text-hover-primary fs-6"><?= $_SESSION['user_name'] ?>
-																								</span>
-																							</div>
-																						</div>
-																					</td>
-																					<td>
-																						<p href="#"
-																							class="text-dark fw-bold text-hover-primary d-block fs-6"><?= $row['montant'] ?> </p>
-																					</td>
-																					<td>
-																						<p href="#"
-																							class="text-dark fw-bold text-hover-primary d-block fs-6">
-																							<?= $row['transaction_date'] ?> </p>
-																					</td>
-																					<td class="text-end">
-																						<!--begin::Label-->
-																						<span
-																							class="badge badge-light-success fs-base">En attente</span>
-																					</td>
-																					<td>
-																						<div
-																							class="d-flex justify-content-end flex-shrink-0">
-																							<a href="transaction-details.php?tr_id=<?= $row['id_transaction']?>"
-																								class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1">
-																								<!--begin::Svg Icon | path: icons/duotune/general/gen019.svg-->
-																								<span class="svg-icon svg-icon-3">
-																									<svg width="24" height="24"
-																										viewBox="0 0 24 24" fill="none"
-																										xmlns="http://www.w3.org/2000/svg">
-																										<rect opacity="0.3" x="2" y="2"
-																											width="20" height="20"
-																											rx="5"
-																											fill="currentColor" />
-																										<path
-																											d="M10.4343 12.4343L8.75 10.75C8.33579 10.3358 7.66421 10.3358 7.25 10.75C6.83579 11.1642 6.83579 11.8358 7.25 12.25L10.2929 15.2929C10.6834 15.6834 11.3166 15.6834 11.7071 15.2929L17.25 9.75C17.6642 9.33579 17.6642 8.66421 17.25 8.25C16.8358 7.83579 16.1642 7.83579 15.75 8.25L11.5657 12.4343C11.2533 12.7467 10.7467 12.7467 10.4343 12.4343Z"
-																											fill="currentColor" />
-																									</svg>
-																								</span>
-																								<!--end::Svg Icon-->
-																							</a>
-																							
-
-																						</div>
-																					</td>
-																				</tr>
-
-																			</tbody>
-																			<!--end::Table body-->
-																		</table>
-																		<!--end::Table-->
-																</div>
-															<?php endif; ?>
-															  <?php endwhile; ?>	
-															  <?php  unset($result); ?>
-														<?php endif; ?>
-															
-												<?php endif; ?>
-														
-													
-												</div>
-
-												<div class="tab-pane fade" id="incoming_tab" role="tabpanel">
-					
-												<?php  $sql = "SELECT * FROM `transactions` WHERE transaction_status='pending' ORDER BY `transactions`.`transaction_hour` DESC LIMIT 10 " ; ?>
-													<?php if($result = $pdo->query($sql)):?>
-														<?php	if($result->rowCount() > 0): ?>
-															
-															<?php while($row = $result->fetch()): ?>
-																			<?php if($row['id_recepteur'] === $_SESSION['id']): ?>
-
-																				<div class="table-responsive item--card mb-4">
-																						<!--begin::Table-->
-																						<table
-																							class="table table-row-dashed table-row-gray-300 align-middle gs-0 gy-4">
-								
-																							<!--begin::Table body-->
-																							<tbody>
-																								<tr>
-								
-																									<td>
-																										<div class="d-flex align-items-center">
-																											<div class="symbol symbol-45px me-5">
-																												<img src="assets/media/avatars/blank.png"
-																													alt="" />
-																											</div>
-																											<div
-																												class="d-flex justify-content-start flex-column">
-																												<span
-																													class="text-dark fw-bold text-hover-primary fs-6">John
-																													Doe</span>
-																												<span
-																													class="text-muted fw-semibold text-muted d-block fs-7">johndoe@gmail.com</span>
-																											</div>
-																										</div>
-																									</td>
-																									<td>
-																										<p href="#"
-																											class="text-dark fw-bold text-hover-primary d-block fs-6"><?= $row['montant'] ?> </p>
-																									</td>
-																									<td>
-																										<p href="#"
-																											class="text-dark fw-bold text-hover-primary d-block fs-6">
-																											<?= $row['transaction_date'] ?> </p>
-																									</td>
-																									<td class="text-end">
-																										<!--begin::Label-->
-																										<span
-																											class="badge badge-light-success fs-base">En attente</span>
-																									</td>
-																									<td>
-																										<div
-																											class="d-flex justify-content-end flex-shrink-0">
-																											<a href="transaction-details.php"
-																												class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1">
-																												<!--begin::Svg Icon | path: icons/duotune/general/gen019.svg-->
-																												<span class="svg-icon svg-icon-3">
-																													<svg width="24" height="24"
-																														viewBox="0 0 24 24" fill="none"
-																														xmlns="http://www.w3.org/2000/svg">
-																														<rect opacity="0.3" x="2" y="2"
-																															width="20" height="20"
-																															rx="5"
-																															fill="currentColor" />
-																														<path
-																															d="M10.4343 12.4343L8.75 10.75C8.33579 10.3358 7.66421 10.3358 7.25 10.75C6.83579 11.1642 6.83579 11.8358 7.25 12.25L10.2929 15.2929C10.6834 15.6834 11.3166 15.6834 11.7071 15.2929L17.25 9.75C17.6642 9.33579 17.6642 8.66421 17.25 8.25C16.8358 7.83579 16.1642 7.83579 15.75 8.25L11.5657 12.4343C11.2533 12.7467 10.7467 12.7467 10.4343 12.4343Z"
-																															fill="currentColor" />
-																													</svg>
-																												</span>
-																												<!--end::Svg Icon-->
-																											</a>
-																											<a href="#"
-																												class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1" data-bs-toggle="modal"
-																												data-bs-target="#danger-modal">
-																												<!--begin::Svg Icon | path: icons/duotune/art/art005.svg-->
-																												<span class="svg-icon svg-icon-3">
-																													<svg width="24" height="24"
-																														viewBox="0 0 24 24" fill="none"
-																														xmlns="http://www.w3.org/2000/svg">
-																														<rect opacity="0.3" x="2" y="2"
-																															width="20" height="20"
-																															rx="10"
-																															fill="currentColor" />
-																														<rect x="11" y="14" width="7"
-																															height="2" rx="1"
-																															transform="rotate(-90 11 14)"
-																															fill="currentColor" />
-																														<rect x="11" y="17" width="2"
-																															height="2" rx="1"
-																															transform="rotate(-90 11 17)"
-																															fill="currentColor" />
-																													</svg>
-																												</span>
-																												<!--end::Svg Icon-->
-																											</a>
-								
-																										</div>
-																									</td>
-																								</tr>
-								
-																							</tbody>
-																							<!--end::Table body-->
-																						</table>
-																						<!--end::Table-->
-																				</div>
-																			<?php endif; ?>
+																	$sender = "SELECT * FROM `users_register` WHERE user_id= :id " ;
+																			if($stmt = $pdo->prepare($sender)){
+																				// Bind variables to the prepared statement as parameters
+																				$stmt->bindParam(":id", $param_id);
 																				
-															      <?php endwhile; ?>	
-															  <?php  unset($result); ?>
-														<?php endif; ?>
-													<?php endif; ?>
-													<div class="table-responsive item--card mb-4">
-														<!--begin::Table-->
-														<table
-															class="table table-row-dashed table-row-gray-300 align-middle gs-0 gy-4">
-
-															<!--begin::Table body-->
-															<tbody>
-																<tr>
-
-																	<td>
-																		<div class="d-flex align-items-center">
-																			<div class="symbol symbol-45px me-5">
-																				<img src="assets/media/avatars/blank.png"
-																					alt="" />
-																			</div>
-																			<div
-																				class="d-flex justify-content-start flex-column">
-																				<span
-																					class="text-dark fw-bold text-hover-primary fs-6">John
-																					Doe</span>
-																				<span
-																					class="text-muted fw-semibold text-muted d-block fs-7">johndoe@gmail.com</span>
-																			</div>
-																		</div>
-																	</td>
-																	<td>
-																		<p href="#"
-																			class="text-dark fw-bold text-hover-primary d-block fs-6">
-																			54000 FCFA</p>
-																	</td>
-																	<td>
-																		<p href="#"
-																			class="text-dark fw-bold text-hover-primary d-block fs-6">
-																			12/09/2022</p>
-																	</td>
-																	<td class="text-end">
-																		<!--begin::Label-->
-																		<span
-																			class="badge badge-light-warning fs-base">En annulation</span>
-																	</td>
-																	<td>
-																		<div
-																			class="d-flex justify-content-end flex-shrink-0">
-																			<a href="transaction-details.php"
-																				class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1" data-bs-toggle="modal"
-																				data-bs-target="#warning-modal">
-																				<!--begin::Svg Icon | path: icons/duotune/general/gen019.svg-->
-																				<span class="svg-icon svg-icon-3">
-																					<svg width="24" height="24"
-																						viewBox="0 0 24 24" fill="none"
-																						xmlns="http://www.w3.org/2000/svg">
-																						<rect opacity="0.3" x="2" y="2"
-																							width="20" height="20"
-																							rx="5"
-																							fill="currentColor" />
-																						<path
-																							d="M10.4343 12.4343L8.75 10.75C8.33579 10.3358 7.66421 10.3358 7.25 10.75C6.83579 11.1642 6.83579 11.8358 7.25 12.25L10.2929 15.2929C10.6834 15.6834 11.3166 15.6834 11.7071 15.2929L17.25 9.75C17.6642 9.33579 17.6642 8.66421 17.25 8.25C16.8358 7.83579 16.1642 7.83579 15.75 8.25L11.5657 12.4343C11.2533 12.7467 10.7467 12.7467 10.4343 12.4343Z"
-																							fill="currentColor" />
-																					</svg>
-																				</span>
-																				<!--end::Svg Icon-->
-																			</a>
-																			<a href="contest-cancellation.php"
-																				class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1">
-																				<!--begin::Svg Icon | path: icons/duotune/art/art005.svg-->
-																				<span class="svg-icon svg-icon-3">
-																					<svg width="24" height="24"
-																						viewBox="0 0 24 24" fill="none"
-																						xmlns="http://www.w3.org/2000/svg">
-																						<rect opacity="0.3" x="2" y="2"
-																							width="20" height="20"
-																							rx="10"
-																							fill="currentColor" />
-																						<rect x="11" y="14" width="7"
-																							height="2" rx="1"
-																							transform="rotate(-90 11 14)"
-																							fill="currentColor" />
-																						<rect x="11" y="17" width="2"
-																							height="2" rx="1"
-																							transform="rotate(-90 11 17)"
-																							fill="currentColor" />
-																					</svg>
-																				</span>
-																				<!--end::Svg Icon-->
-																			</a>
-
-																		</div>
-																	</td>
-																</tr>
-
-															</tbody>
-															<!--end::Table body-->
-														</table>
-														<!--end::Table-->
-													</div>
-													<!--end::Table-->
-
-													<div class="table-responsive item--card mb-4">
-														<!--begin::Table-->
-														<table
-															class="table table-row-dashed table-row-gray-300 align-middle gs-0 gy-4">
-
-															<!--begin::Table body-->
-															<tbody>
-																<tr>
-
-																	<td>
-																		<div class="d-flex align-items-center">
-																			<div class="symbol symbol-45px me-5">
-																				<img src="assets/media/avatars/blank.png"
-																					alt="" />
-																			</div>
-																			<div
-																				class="d-flex justify-content-start flex-column">
-																				<span
-																					class="text-dark fw-bold text-hover-primary fs-6">John
-																					Doe</span>
-																				<span
-																					class="text-muted fw-semibold text-muted d-block fs-7">johndoe@gmail.com</span>
-																			</div>
-																		</div>
-																	</td>
-																	<td>
-																		<p href="#"
-																			class="text-dark fw-bold text-hover-primary d-block fs-6">
-																			54000 FCFA</p>
-																	</td>
-																	<td>
-																		<p href="#"
-																			class="text-dark fw-bold text-hover-primary d-block fs-6">
-																			12/09/2022</p>
-																	</td>
-																	<td class="text-end">
-																		<!--begin::Label-->
-																		<span
-																			class="badge badge-light-success fs-base">En
-																			cours</span>
-																	</td>
-																	<td>
-																		<div
-																			class="d-flex justify-content-end flex-shrink-0">
-																			<a href="transaction-details.php"
-																				class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1">
-																				<!--begin::Svg Icon | path: icons/duotune/general/gen019.svg-->
-																				<span class="svg-icon svg-icon-3">
-																					<svg width="24" height="24"
-																						viewBox="0 0 24 24" fill="none"
-																						xmlns="http://www.w3.org/2000/svg">
-																						<rect opacity="0.3" x="2" y="2"
-																							width="20" height="20"
-																							rx="5"
-																							fill="currentColor" />
-																						<path
-																							d="M10.4343 12.4343L8.75 10.75C8.33579 10.3358 7.66421 10.3358 7.25 10.75C6.83579 11.1642 6.83579 11.8358 7.25 12.25L10.2929 15.2929C10.6834 15.6834 11.3166 15.6834 11.7071 15.2929L17.25 9.75C17.6642 9.33579 17.6642 8.66421 17.25 8.25C16.8358 7.83579 16.1642 7.83579 15.75 8.25L11.5657 12.4343C11.2533 12.7467 10.7467 12.7467 10.4343 12.4343Z"
-																							fill="currentColor" />
-																					</svg>
-																				</span>
-																				<!--end::Svg Icon-->
-																			</a>
+																				// Set parameters
+																				$param_id = trim($row['id_recepteur']);
+																				
+																				// Attempt to execute the prepared statement
+																				if($stmt->execute()){
+																					if($stmt->rowCount() > 0){
+																						/* Fetch result row as an associative array. Since the result set
+																						contains only one row, we don't need to use while loop */
+																						$recepteur_row = $stmt->fetch(PDO::FETCH_ASSOC);
+																						
+																						// Retrieve individual field value
+																						$nom_recepteur = $recepteur_row["user_name"];
+																						$profile_recepteur = $recepteur_row["profile_pic"];
+																					} 
+																					
+																				} else{
+																					echo "Oops! Something went wrong. Please try again later.";
+																				}
+																			}
+																			// Close statement
+																			unset($sender);
 																			
 
-																		</div>
-																	</td>
-																</tr>
+																	echo ' <div class="table-responsive item--card mb-4">
+																				<!--begin::Table-->
+																				<table
+																					class="table table-row-dashed table-row-gray-300 align-middle gs-0 gy-4">
 
-															</tbody>
-															<!--end::Table body-->
-														</table>
-														<!--end::Table-->
-													</div>
-													<!--end::Table-->
-												</div>
+																					<!--begin::Table body-->
+																					<tbody>
+																						<tr>
+
+																							<td>
+																								<div class="d-flex align-items-center">
+																									<div class="symbol symbol-45px me-5">
+																										<img src="assets/media/profile/'.$profile_recepteur.'"alt="" />
+																									</div>
+																										<div class="d-flex justify-content-start flex-column">
+																											<span class="text-dark fw-bold text-hover-primary fs-6">'.$nom_recepteur.'
+																										</span>
+																									</div>
+																								</div>
+																							</td>
+																							<td>
+																								<p href="#"
+																									class="text-dark fw-bold text-hover-primary d-block fs-6"> '.$row['montant'].'  </p>
+																							</td>
+																							<td>
+																								<p href="#"
+																									class="text-dark fw-bold text-hover-primary d-block fs-6">
+																									'.$row['transaction_date'].' </p>
+																							</td>
+																							<td class="text-end">
+																								<!--begin::Label-->
+																								<span
+																									class="badge badge-light-success fs-base">En attente</span>
+																							</td>
+																							<td>
+																								<div
+																									class="d-flex justify-content-end flex-shrink-0">
+																									<a href="transaction-details.php?tr_id='.$row['id_transaction'].'"
+																										class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1">
+																										<!--begin::Svg Icon | path: icons/duotune/general/gen019.svg-->
+																										<span class="svg-icon svg-icon-3">
+																											<svg width="24" height="24"
+																												viewBox="0 0 24 24" fill="none"
+																												xmlns="http://www.w3.org/2000/svg">
+																												<rect opacity="0.3" x="2" y="2"
+																													width="20" height="20"
+																													rx="5"
+																													fill="currentColor" />
+																												<path
+																													d="M10.4343 12.4343L8.75 10.75C8.33579 10.3358 7.66421 10.3358 7.25 10.75C6.83579 11.1642 6.83579 11.8358 7.25 12.25L10.2929 15.2929C10.6834 15.6834 11.3166 15.6834 11.7071 15.2929L17.25 9.75C17.6642 9.33579 17.6642 8.66421 17.25 8.25C16.8358 7.83579 16.1642 7.83579 15.75 8.25L11.5657 12.4343C11.2533 12.7467 10.7467 12.7467 10.4343 12.4343Z"
+																													fill="currentColor" />
+																											</svg>
+																										</span>
+																										<!--end::Svg Icon-->
+																									</a>
+																									
+
+																								</div>
+																							</td>
+																						</tr>
+
+																					</tbody>
+																					<!--end::Table body-->
+																				</table>
+																				<!--end::Table-->
+																		</div>';
+																}
+															unset($result);
+														} else{
+															echo '<div class="alert alert-warning"><em>Aucune transaction.</em></div>';
+														}
+													} else{
+														echo "Oops! Something went wrong. Please try again later.";
+													}
+													
+													// Close connection
+													unset($pdo);
+													?>
 											</div>
+
 										</div>
-									</div>
-
-
-								</div>
 							</div>
 							<!--end::Timeline Widget 1-->
 						</div>

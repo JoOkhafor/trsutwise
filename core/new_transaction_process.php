@@ -17,7 +17,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     if(empty(trim($_POST["mail_destinataire"]))){
 		$mail_destinataire_err = "Veuillez entrer un destinataire";
 	} 
-	elseif(!preg_match('/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/', trim($_POST["mail_destinataire"]))){
+	elseif(!filter_var(trim($_POST["mail_destinataire"]), FILTER_VALIDATE_EMAIL)){
 		$mail_destinataire_err = "Email non valide";} 
 	else{
 			// Prepare a select statement

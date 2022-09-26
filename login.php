@@ -21,8 +21,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Check if username is empty
     if(empty(trim($_POST["email"]))){
         $login_mail_err = "Veuillez entrer une adresse mail.";
-    }  elseif(!preg_match('/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/', trim($_POST["email"]))){
-		$email_err = "Email non valide";}
+    }  elseif(!filter_var(trim($_POST["email"]), FILTER_VALIDATE_EMAIL)){
+		$login_mail_err = "Email non valide";}
 	 else{
         $login_mail = trim($_POST["email"]);
     }
@@ -52,24 +52,30 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 if($stmt->rowCount() == 1){
                     if($row = $stmt->fetch()){
                         $id = $row["user_id"];
-                        $user_mail = $_row["email"];
+                        $user_mail = $row["email"];
                         $user_name = $row["user_name"];
+                        $user_phone = $row["telephone"];
                         $hashed_password = $row["password"];
+                        $user_country = $row["pays"];
+                        $user_profile = $row["profile_pic"];
                         if(password_verify($login_password, $hashed_password)){
                             // Password is correct, so start a new session
                             session_start();
-                            
                             // Store data in session variables
                             $_SESSION["loggedin"] = true;
                             $_SESSION["id"] = $id;
                             $_SESSION["user_name"] = $user_name;                            
-                            $_SESSION["usr_mail"] =  $user_mail;                            
+                            $_SESSION["user_mail"] = $user_mail;                            
+                            $_SESSION["user_profile"] =  $user_profile;                            
+                            $_SESSION["user_telephone"] =  $user_phone;                            
+                            $_SESSION["user_country"] =  $user_country;                            
                             
                             // Redirect user to welcome page
                             header("location: dashboard.php");
                         } else{
                             // Password is not valid, display a generic error message
-                            $login_err = "Identifiant invalide";
+                            $login_mail_err = "Identifiant ou mot de pass incorrect";
+                            $login_password_err = "Identifiant ou mot de pass incorrect";
                         }
                     }
                 } else{
@@ -132,8 +138,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 									<!--end::Back link-->
 									<!--begin::Sign Up link-->
 									<div class="m-0 d-flex flex-column align-items-end">
-										<span class="text-gray-400 fw-bold fs-5" data-kt-translate="new-password-head-desc">Vous avez déjà un compte ?</span>
-										<a href="sign-up.php" class="link-primary fw-bold fs-5" data-kt-translate="new-password-head-link">Connectez-vous</a>
+										<span class="text-gray-400 fw-bold fs-5" data-kt-translate="new-password-head-desc">Vous n'avez pas de compte ?</span>
+										<a href="sign-up.php" class="link-primary fw-bold fs-5" data-kt-translate="new-password-head-link">Inscrivez-vous</a>
 									</div>
 									<!--end::Sign Up link=-->
 								</div>
@@ -153,9 +159,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 										</div>
 										<!--end::Heading-->
 										<!--begin::Input group=-->
-										<div class="fv-row mb-10" >
+										<div class="fv-row mb-10 text-start" >
 											<input class="form-control form-control-lg form-control-solid" type="email" placeholder="Email" name="email" <?php echo (!empty($login_mail_err)) ? 'is-invalid' : ''; ?> value="<?php echo $login_mail; ?>">
-                <span class="invalid-feedback"><?php echo $login_err; ?></span>
+                								<p class="text-danger py-2 mt-1"><?php echo $login_mail_err; ?></p>
 										</div>
 										<!--end::Input group=-->
 										
@@ -164,9 +170,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 											<!--begin::Wrapper-->
 											<div class="mb-1">
 												<!--begin::Input wrapper-->
-												<div class="position-relative mb-3">
+												<div class="position-relative mb-3 text-start">
 													<input class="form-control form-control-lg form-control-solid" type="password" placeholder="Mot de pass" name="password" <?php echo (!empty($login_password_err)) ? 'is-invalid' : ''; ?> value="<?php echo $login_password; ?>">
-                                                  <span class="invalid-feedback"><?php echo $login_err; ?></span>
+													<p class="text-danger py-2 mt-1"><?php echo $login_password_err; ?></p>
 													
 												</div>
 												<!--end::Input wrapper-->
